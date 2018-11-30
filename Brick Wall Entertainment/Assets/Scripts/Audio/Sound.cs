@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Audio;
 
 namespace BrickWallEntertainment
@@ -31,7 +29,7 @@ namespace BrickWallEntertainment
         {
             this.source = source;
             this.source.clip = this.clip;
-            this.source.outputAudioMixerGroup = mixerGroup;
+            this.source.outputAudioMixerGroup = this.mixerGroup;
             this.source.playOnAwake = this.playOnAwake;
             this.source.loop = this.loop;
             this.source.volume = this.volume;
