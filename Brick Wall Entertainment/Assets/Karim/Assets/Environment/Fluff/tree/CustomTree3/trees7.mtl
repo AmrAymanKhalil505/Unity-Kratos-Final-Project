@@ -1,0 +1,77 @@
+newmtl Trunc_010
+Ka 0 0 0
+Ns 1
+Ks 0.996078 0.937255 0.831373
+Kd 0.24642 0.238042 0.123657
+map_Kd Trunc_010.jpg
+map_Bump Trunc_01_b0.jpg
+newmtl Trunc_011
+Ka 0 0 0
+Ns 1
+Ks 0.996078 0.937255 0.831373
+Kd 0.24642 0.238042 0.123657
+map_Kd Trunc_011_1.jpg
+map_Bump Trunc_01_b1_1.jpg
+newmtl Trunc_012
+Ka 0 0 0
+Ns 1
+Ks 0.996078 0.937255 0.831373
+Kd 0.24642 0.238042 0.123657
+map_Kd Trunc_012_2.jpg
+map_Bump Trunc_01_b2_2.jpg
+newmtl Roots0
+Ka 0 0 0
+Ns 8.16617
+Ks 1 1 1
+Kd 0.24005 0.242009 0.212556
+map_Kd Roots0_3.jpg
+map_Bump Roots_b0_3.jpg
+newmtl Roots1
+Ka 0 0 0
+Ns 8.16617
+Ks 1 1 1
+Kd 0.24005 0.242009 0.212556
+map_Kd Roots1_4.jpg
+map_Bump Roots_b1_4.jpg
+newmtl Roots2
+Ka 0 0 0
+Ns 8.16617
+Ks 1 1 1
+Kd 0.24005 0.242009 0.212556
+map_Kd Roots2_5.jpg
+map_Bump Roots_b2_5.jpg
+newmtl Roots3
+Ka 0 0 0
+Ns 8.16617
+Ks 1 1 1
+Kd 0.223412 0.22605 0.19391
+map_Kd Roots3_6.jpg
+map_Bump Roots_b3_6.jpg
+newmtl Roots4
+Ka 0 0 0
+Ns 8.16617
+Ks 1 1 1
+Kd 0.24005 0.242009 0.212556
+map_Kd Roots4_7.jpg
+map_Bump Roots_b4_7.jpg
+newmtl Roots5
+Ka 0 0 0
+Ns 1
+Ks 0.996078 0.937255 0.831373
+Kd 0.242749 0.262375 0.147772
+map_Kd Roots5_8.jpg
+map_Bump Roots_b5_8.jpg
+newmtl Roots6
+Ka 0 0 0
+Ns 1
+Ks 0.996078 0.937255 0.831373
+Kd 0.242749 0.262375 0.147772
+map_Kd Roots6_9.jpg
+map_Bump Roots_b6_9.jpg
+newmtl Poplar_Leaves
+Ka 0 0 0
+Ns 7.69061
+Ks 1 1 1
+Kd 0.322024 0.414549 0.30676
+map_Kd Poplar_Leaves_10.jpg
+map_Bump Poplar_Leaves_b_10.jpg
