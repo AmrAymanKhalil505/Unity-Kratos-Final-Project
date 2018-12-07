@@ -189,16 +189,16 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.5652174
-        functionName: doneGettingHit
-        data: 
+      - time: 0
+        functionName: playSound
+        data: '"LightEnemyImpact"'
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0
-        functionName: playSound
-        data: '"LightEnemyImpact"'
+      - time: 1
+        functionName: doneGettingHit
+        data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0

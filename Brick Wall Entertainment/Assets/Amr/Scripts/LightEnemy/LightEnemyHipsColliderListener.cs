@@ -11,10 +11,6 @@ public class LightEnemyHipsColliderListener : MonoBehaviour {
 		LEB= LightEnemyParent.GetComponent<LightEnemyBehaviour>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 	void OnTriggerEnter(Collider other)
     {	
 		if(TagAxeKratos == other.gameObject.tag){

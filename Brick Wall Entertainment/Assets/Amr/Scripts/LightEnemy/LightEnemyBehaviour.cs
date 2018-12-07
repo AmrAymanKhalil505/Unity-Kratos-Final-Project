@@ -3,31 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 public class LightEnemyBehaviour : MonoBehaviour {
+	[Header ("Animation related")]
 	Animator Anim;
 	public AnimationClip runningClip;
 
-	public AudioClip AudioClipCast ;
-	public AudioClip AudioClipImpact ;
-	public AudioClip AudioClipDeath ;
 
-	public string KratosTag;
-	public float AudioVolume; 
-	private AudioSource source;
+	//keys used in the notifcation of animation 
 	string HP = "HP";
 	string KratosNear = "KratosNear";
-	string CastingDone = "CastingDone";
+
 	string CanHit = "CanHit";
 	string GotHit = "GotHit";
 
+
+
+	[Header ("Audio related")]
+	public AudioClip AudioClipCast ;
+	public AudioClip AudioClipImpact ;
+	public AudioClip AudioClipDeath ;
+	public float AudioVolume; 
+	private AudioSource source;
+	
+
+	//against Kratos behaviour related 
+
+	public string KratosTag;
+	public float DistanceToNotify; 
 	bool KratosNearB = false;
-	
 	GameObject KratosGO ;
-
 	Vector3 KratosLastPostion;
-
 	NavMeshAgent NMA;
-	
-
 	public int MaxHP;
 
 	public float RotationSpeed;
@@ -35,13 +40,12 @@ public class LightEnemyBehaviour : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Anim = GetComponent<Animator>();
-		source = GetComponent<AudioSource>();
-
 		Anim.SetInteger(HP, MaxHP);
 		Anim.SetBool(KratosNear , false);
-		Anim.SetBool(CastingDone, false);
 		Anim.SetBool(CanHit, false);
 		Anim.SetBool(GotHit, false);
+
+		source = GetComponent<AudioSource>();
 
 		NMA = GetComponent<NavMeshAgent>();	
 		KratosGO = GameObject.FindGameObjectsWithTag(KratosTag)[0];
@@ -50,15 +54,24 @@ public class LightEnemyBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		//is Kratos near
+		if(!KratosNearB && Vector3.Distance(transform.position , KratosGO.transform.position) < DistanceToNotify){
+			notifyKratosApproch();
+		}
+
+		// running towards Kratos 
 		if(KratosNearB){
 			if(Anim.GetCurrentAnimatorClipInfo(Anim.GetLayerIndex("Base Layer"))[0].clip == runningClip){
-					KratosLastPostion = KratosGO.GetComponent<Transform>().position;
+					KratosLastPostion = KratosGO.transform.position;
 					NMA.SetDestination(KratosLastPostion);
 			}else{
 				NMA.SetDestination(transform.position);
 			}
 		}	
+		
+		// able to hit Kratos ??
 		bool NearKratosDistance =Vector3.Distance(transform.position , KratosGO.transform.position)<DistanceToKratosToHit;
+		// looking at kratos ??
 		Vector3 dir = (KratosGO.transform.position- transform.position).normalized;
 		float dot = Vector3.Dot(dir, transform.forward);
 		bool lookingAtKratos = Mathf.Abs(dot - 1 )<= 0.1f;
@@ -74,18 +87,10 @@ public class LightEnemyBehaviour : MonoBehaviour {
 
 	}
 	
-	void OnTriggerEnter(Collider other)
-    {
-        print(other.gameObject.tag);
-    }
 	public void notifyKratosApproch(){
 		Anim.SetBool(KratosNear , true);
 		KratosNearB= true;
 	}
-	public void notifyCastingDone(){
-		Anim.SetBool(CastingDone , true);
-	}
-
 	void canHit(){
 		Anim.SetBool(CanHit, true);
 	}
@@ -93,13 +98,14 @@ public class LightEnemyBehaviour : MonoBehaviour {
 		Anim.SetBool(CanHit, false);	
 	}
 	public void damage(int x){
-		Anim.SetInteger(HP, Anim.GetInteger(HP)-x);
-		hit();
+		if(!Anim.GetBool(GotHit)){
+			Anim.SetInteger(HP, Anim.GetInteger(HP)-x);
+			hit();
+		}
 	}
 	public void hit(){
 		Anim.SetBool(GotHit, true);
 	}
-	
 	public void doneGettingHit(){
 		Anim.SetBool(GotHit, false);
 	}
