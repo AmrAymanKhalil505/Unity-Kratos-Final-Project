@@ -17,7 +17,7 @@ public class PlatformScript : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (this.tag == "FrontBackPlatforms")
+        if (this.tag == "RightLeftPlatforms")
         {
             if(counter >= 200)
             {
@@ -35,7 +35,7 @@ public class PlatformScript : MonoBehaviour {
             counter++;
         }
 
-        if (this.tag == "RightLeftPlatforms")
+        if (this.tag == "FrontBackPlatforms")
         {
             if (counter >= 200)
             {
