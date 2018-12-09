@@ -6,6 +6,10 @@ TagManager:
   tags:
   - LightEnemy
   - KratosAxe
+  - FallingRock
+  - HealthChest
+  - Kratos
+  - EnemySpawn
   layers:
   - Default
   - TransparentFX
