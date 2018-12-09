@@ -67,57 +67,67 @@ public class RangedBehaviour : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
+		BackingDownTime-= Time.deltaTime;
 		if(Vector3.Distance(transform.position , KratosGO.transform.position) < DistanceToNotify){
 			notifyKratosApproch();
 		}
-		BackingDownTime-= Time.deltaTime;
-
-		if(KratosNearB){
-			if(Anim.GetCurrentAnimatorClipInfo(Anim.GetLayerIndex("Base Layer"))[0].clip == runningClip){
-					KratosLastPostion = KratosGO.transform.position;
-					if(!KratosTooNear ){
-						print(KratosLastPostion);
-						NMA.SetDestination(KratosLastPostion);
-					}else{
-						Vector3 toPlayer = KratosLastPostion - transform.position;
-						Vector3 targetPosition = toPlayer.normalized * BackMultiplier;
-						NMA.SetDestination(transform.position+targetPosition);
-					}
-			}else{
-				NMA.SetDestination(transform.position);
-			}
-			
-		}	
-
-
-		// able to hit Kratos ??
-		bool NearKratosDistance =Vector3.Distance(transform.position , KratosGO.transform.position)<DistanceToKratosToHit;
-		bool TooNearKratosDistance =Vector3.Distance(transform.position , KratosGO.transform.position)<DistanceToKratosTooClose;
-		// looking at kratos ??
-		Vector3 dir = (KratosGO.transform.position- transform.position).normalized;
-		float dot = Vector3.Dot(dir, transform.forward);
-		bool lookingAtKratos = Mathf.Abs(dot - 1 )<= 0.1f;
-		if(NearKratosDistance ){
-			if(TooNearKratosDistance){
-				tooNearSet(true);
-			}else{
-				canHit();
-				tooNearSet(false);
-			}
-
-			
-			if(!lookingAtKratos && !KratosTooNear || BackingDownTime <0){
-				Vector3 newDir=  Vector3.RotateTowards(transform.forward,  KratosGO.transform.position-transform.position, RotationSpeed * Time.deltaTime,0.0f);
-				transform.rotation = Quaternion.LookRotation(newDir);
-			}
-			
+		if(BackingDownTime<0 && KratosTooNear ){
+			NMA.Stop();
 		}else{
-			cannotHit();
+			NMA.Resume();
 		}
-
+		shouldFollowKratos();
+		shouldHitKratos();
 	}
 
+	void shouldFollowKratos(){
+		if(KratosNearB&&Anim.GetCurrentAnimatorClipInfo(Anim.GetLayerIndex("Base Layer"))[0].clip == runningClip){
+			KratosLastPostion = KratosGO.transform.position;
+			if(!KratosTooNear ){
+				NMA.SetDestination(KratosLastPostion);
+			}else{
+				Vector3 toPlayer = KratosLastPostion - transform.position;
+				Vector3 targetPosition = toPlayer.normalized * BackMultiplier;
+				NMA.SetDestination(transform.position+targetPosition);
+			}
+		}else {
+			NMA.SetDestination(transform.position);
+		}
+	}
+	void shouldHitKratos(){
+		bool TooNearKratosDistance =Vector3.Distance(transform.position , KratosGO.transform.position)<DistanceToKratosTooClose;
+		tooNearSet(TooNearKratosDistance);
+		if(KratosNearB){
+				bool NearKratosDistance =Vector3.Distance(transform.position , KratosGO.transform.position)<DistanceToKratosToHit;
+				
+				Vector3 dir = (KratosGO.transform.position- transform.position).normalized;
+				float dot = Vector3.Dot(dir, transform.forward);
+				bool lookingAtKratos = Mathf.Abs(dot - 1 )<= 0.1f;
+				if(TooNearKratosDistance){
+					
+					if(BackingDownTime<0){
+						if(!lookingAtKratos){
 
+							Vector3 newDir=  Vector3.RotateTowards(transform.forward,  KratosGO.transform.position-transform.position, RotationSpeed * Time.deltaTime,0.0f);
+							transform.rotation = Quaternion.LookRotation(newDir);
+						}else{
+							canHit();
+						}
+					}else{
+						cannotHit();
+					}
+				}else if(NearKratosDistance){
+					if(!lookingAtKratos){
+						Vector3 newDir=  Vector3.RotateTowards(transform.forward,  KratosGO.transform.position-transform.position, RotationSpeed * Time.deltaTime,0.0f);
+						transform.rotation = Quaternion.LookRotation(newDir);
+					}else{
+						canHit();
+					}
+				}else{
+					cannotHit();
+				}
+		} 
+	}
 
 	public void notifyKratosApproch(){
 		Anim.SetBool(KratosNear , true);
@@ -145,7 +155,7 @@ public class RangedBehaviour : MonoBehaviour {
 	public void tooNearSet(bool isTooNear){
 		Anim.SetBool(TooNear, isTooNear);
 		KratosTooNear= isTooNear;
-		Anim.SetBool(CanHit, !isTooNear || (BackingDownTime < 0));
+		//Anim.SetBool(CanHit, !isTooNear || (BackingDownTime < 0));
 	}
 	
 	public void doneGettingHit(){
@@ -166,7 +176,6 @@ public class RangedBehaviour : MonoBehaviour {
 		}else if (soundNameDeath  == soundName ){
 			source.PlayOneShot(AudioClipDeath ,AudioVolume);
 		}
-		
 	}
 	
 }
