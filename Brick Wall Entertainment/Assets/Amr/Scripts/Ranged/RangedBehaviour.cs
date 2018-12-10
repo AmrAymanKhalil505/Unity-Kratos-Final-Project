@@ -48,6 +48,8 @@ public class RangedBehaviour : MonoBehaviour {
 	public float BackingDownTime;
 	public float BackingDownTimerGap=2;
 	public float BackMultiplier = -3f;
+
+	public GameObject RightHand;
 	void Start () {
 		Anim = GetComponent<Animator>();
 		Anim.SetInteger(HP, MaxHP);
@@ -176,6 +178,9 @@ public class RangedBehaviour : MonoBehaviour {
 		}else if (soundNameDeath  == soundName ){
 			source.PlayOneShot(AudioClipDeath ,AudioVolume);
 		}
+	}
+	public void attack(){
+		RightHand.GetComponent<SpellAttack>().attack();
 	}
 	
 }
