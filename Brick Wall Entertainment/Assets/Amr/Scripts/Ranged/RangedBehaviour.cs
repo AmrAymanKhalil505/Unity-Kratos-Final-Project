@@ -26,6 +26,7 @@ public class RangedBehaviour : MonoBehaviour {
 	public AudioClip AudioClipCast ;
 	public AudioClip AudioClipImpact ;
 	public AudioClip AudioClipDeath ;
+	public AudioClip AudioClipStep;
 	public float AudioVolume; 
 	private AudioSource source;
 	
@@ -170,6 +171,7 @@ public class RangedBehaviour : MonoBehaviour {
 		string soundNameCast = "RangedEnemyCast";
 		string soundNameImpact = "RangedEnemyImpact";
 		string soundNameDeath = "RangedEnemyDeath";
+		string soundNameStep = "RangedEnemyStep";
 
 		if(soundNameCast  == soundName ){
 			source.PlayOneShot(AudioClipCast ,AudioVolume);
@@ -177,6 +179,8 @@ public class RangedBehaviour : MonoBehaviour {
 			source.PlayOneShot(AudioClipImpact ,AudioVolume);
 		}else if (soundNameDeath  == soundName ){
 			source.PlayOneShot(AudioClipDeath ,AudioVolume);
+		}else if (soundNameStep  == soundName ){
+			source.PlayOneShot(AudioClipStep ,AudioVolume);
 		}
 	}
 	public void attack(){

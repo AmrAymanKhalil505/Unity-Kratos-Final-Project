@@ -11,8 +11,11 @@ public class SpellBehaviour : MonoBehaviour {
 		float step = SpellSpeed * Time.deltaTime;
 		lifeTime-=Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, TargetToKill, step);
-		if(Vector3.Distance(transform.position,TargetToKill)<0){
-			Destroy(gameObject);
+		if(Vector3.Distance(transform.position,TargetToKill)<0.1){
+				Vector3 toPlayer = TargetToKill - transform.position;
+				Vector3 targetPosition = toPlayer.normalized * 3;
+				TargetToKill= transform.position+targetPosition;
+				GetComponent<Rigidbody>().useGravity=true;
 		}
 	}
 

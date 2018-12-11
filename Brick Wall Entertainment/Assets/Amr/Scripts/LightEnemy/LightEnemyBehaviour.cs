@@ -7,6 +7,7 @@ public class LightEnemyBehaviour : MonoBehaviour {
 	Animator Anim;
 	public AnimationClip runningClip;
 
+	public GameObject enemyWeapon;
 
 	//keys used in the notifcation of animation 
 	string HP = "HP";
@@ -21,6 +22,7 @@ public class LightEnemyBehaviour : MonoBehaviour {
 	public AudioClip AudioClipCast ;
 	public AudioClip AudioClipImpact ;
 	public AudioClip AudioClipDeath ;
+	public AudioClip AudioClipStep;
 	public float AudioVolume; 
 	private AudioSource source;
 	
@@ -113,14 +115,18 @@ public class LightEnemyBehaviour : MonoBehaviour {
 		string soundNameCast = "LightEnemyCast";
 		string soundNameImpact = "LightEnemyImpact";
 		string soundNameDeath = "LightEnemyDeath";
-
+		string soundNameStep = "LightEnemyStep";
 		if(soundNameCast  == soundName ){
 			source.PlayOneShot(AudioClipCast ,AudioVolume);
 		}else if (soundNameImpact  == soundName ){
 			source.PlayOneShot(AudioClipImpact ,AudioVolume);
 		}else if (soundNameDeath  == soundName ){
 			source.PlayOneShot(AudioClipDeath ,AudioVolume);
-		}
-		
+		}else if(soundNameStep== soundNameStep){
+			source.PlayOneShot(AudioClipStep,AudioVolume);
+		}	
+	}
+	public void activateWeaponCollider(int colliderEnabled){
+		enemyWeapon.GetComponent<CapsuleCollider>().enabled = (colliderEnabled==1);
 	}
 }

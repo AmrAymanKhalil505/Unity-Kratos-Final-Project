@@ -12,7 +12,7 @@ public class SpellAttack : MonoBehaviour {
 	}
 	
 	public void attack (){ 
-		GameObject spellPartical = Instantiate (Spell,transform.position,Quaternion.EulerAngles(0,0,0)) as GameObject;
+		GameObject spellPartical = Instantiate (Spell,transform.position,transform.rotation) as GameObject;
 		spellPartical.GetComponent<SpellBehaviour>().SpellSpeed = ProjectileSpeed;
 		spellPartical.GetComponent<SpellBehaviour>().TargetToKill= KratosGO.transform.position;
 	}
