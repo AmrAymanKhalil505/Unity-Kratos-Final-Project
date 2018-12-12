@@ -102,12 +102,14 @@ public class PlayerController : MonoBehaviour {
 			if(Input.GetKeyDown(KeyCode.Space) && inAir && canDoubleJump && !inCombo){
 				animator.SetBool("DoubleJump",true);
 				animator.SetBool("jumping", false);
+				this.GetComponent<Rigidbody>().AddForce(new Vector3(0,300,0),ForceMode.Impulse);
 				canDoubleJump = false;
 			}
 
 			if (Input.GetKeyDown(KeyCode.Space) && !inAir && !animator.GetBool("blocking") && !inCombo)
 			{
 				animator.SetBool("jumping", true);
+				this.GetComponent<Rigidbody>().AddForce(new Vector3(0,300,0),ForceMode.Impulse);
 				inAir = true;
 				animator.SetBool("landing",false);
 				canDoubleJump = true;
@@ -115,12 +117,12 @@ public class PlayerController : MonoBehaviour {
 
 			if (animator.GetBool("jumping"))
 			{
-				transform.Translate(new Vector3(0, 0.2f, 0));
+				// transform.Translate(new Vector3(0, 0.2f, 0));
 			}
 
 			if (animator.GetBool("DoubleJump"))
 			{
-				transform.Translate(new Vector3(0, 0.4f, 0));
+				// transform.Translate(new Vector3(0, 0.4f, 0));
 			}
 
 			// if (animator.GetCurrentAnimatorStateInfo(0).IsName("Falling 0"))
