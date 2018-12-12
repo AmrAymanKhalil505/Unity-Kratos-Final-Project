@@ -927,8 +927,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1200973923214258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.14, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.56, y: 31.28, z: -154.32}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4492780466573844}
   - {fileID: 4711349756359006}
@@ -1325,7 +1325,7 @@ MonoBehaviour:
   RageMode: 0
   lightAttackDamage: 10
   heavyAttackDamage: 30
-  currentSpeed: 5
+  currentSpeed: 2
   camera: {fileID: 0}
   AxeParticles: {fileID: 1036445938084518}
 --- !u!136 &136876607754692332
