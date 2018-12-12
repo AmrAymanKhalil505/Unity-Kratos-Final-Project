@@ -86,7 +86,7 @@ public class bossTakeDamage : MonoBehaviour {
         }
         if (legsHealth < 0)
         {
-            health -= .05f * maxHealth;
+            // health -= .05f * maxHealth;
         }
     }
 

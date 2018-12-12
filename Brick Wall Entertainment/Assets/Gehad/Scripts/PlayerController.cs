@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour {
 			if(Input.GetKeyDown(KeyCode.Space) && inAir && canDoubleJump && !inCombo){
 				animator.SetBool("DoubleJump",true);
 				animator.SetBool("jumping", false);
-				this.GetComponent<Rigidbody>().AddForce(new Vector3(0,300,0),ForceMode.Impulse);
+				this.GetComponent<Rigidbody>().AddForce(new Vector3(0,400,0),ForceMode.Impulse);
 				canDoubleJump = false;
 			}
 
@@ -397,26 +397,13 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 		}
-
-		if(collision.gameObject.tag == "BossAxe" && GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetBool("AxeAttack")){
-			print("ouch");
-			if(!immune){
-				currentHealth -= 10;
-				if(currentHealth == 0){
-					animator.SetTrigger("Dead");
-					Dead = true;
-				}
-				else{
-					animator.SetTrigger("hit");
-				}
-			}			
-		}
 	}
 
 	void OnCollisionExit(Collision collision){
 		if(collision.gameObject.tag == "Ground" && !animator.GetBool("jumping")){
 			animator.SetBool("landing",false);
 			inAir = true;
+			canDoubleJump =true;
 		}
 	}
 
@@ -432,6 +419,7 @@ public class PlayerController : MonoBehaviour {
 					animator.SetTrigger("hit");
 					animator.SetInteger("HeavyAttack", 0);
 					noOfClicks = 0;
+					canClick = true;
 				}
 			}			
 		}
@@ -446,6 +434,7 @@ public class PlayerController : MonoBehaviour {
 					animator.SetTrigger("hit");
 					animator.SetInteger("HeavyAttack", 0);
 					noOfClicks = 0;
+					canClick = true;
 				}
 			}			
 		}
@@ -460,6 +449,7 @@ public class PlayerController : MonoBehaviour {
 					animator.SetTrigger("hit");
 					animator.SetInteger("HeavyAttack", 0);
 					noOfClicks = 0;
+					canClick = true;
 				}
 			}			
 		}
@@ -474,6 +464,7 @@ public class PlayerController : MonoBehaviour {
 					animator.SetTrigger("hit");
 					animator.SetInteger("HeavyAttack", 0);
 					noOfClicks = 0;
+					canClick = true;
 				}
 			}
 		}
@@ -488,6 +479,7 @@ public class PlayerController : MonoBehaviour {
 					animator.SetTrigger("hit");
 					animator.SetInteger("HeavyAttack", 0);
 					noOfClicks = 0;
+					canClick = true;
 				}
 			}
 		}
@@ -502,6 +494,7 @@ public class PlayerController : MonoBehaviour {
 					animator.SetTrigger("hit");
 					animator.SetInteger("HeavyAttack", 0);
 					noOfClicks = 0;
+					canClick = true;
 				}
 			}
 		}
@@ -516,6 +509,7 @@ public class PlayerController : MonoBehaviour {
 					animator.SetTrigger("hit");
 					animator.SetInteger("HeavyAttack", 0);
 					noOfClicks = 0;
+					canClick = true;
 				}
 			}
 		}
