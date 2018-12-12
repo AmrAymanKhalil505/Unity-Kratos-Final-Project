@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 203fe5ab3ed477a4fa82992a885429a7
+guid: 16d270d4b09dda848bcf67b1df72f551
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -71,7 +71,7 @@ ModelImporter:
     400062: mixamorig:Spine
     400064: mixamorig:Spine1
     400066: mixamorig:Spine2
-    7400000: heavy attack 3
+    7400000: LightAttack_3
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -102,7 +102,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: heavy attack 3
+      name: LightAttack_3
       takeName: mixamo.com
       firstFrame: 0
       lastFrame: 149
@@ -125,21 +125,35 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.99159664
+      - time: 0.36659923
+        functionName: throw2
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.7745902
+        functionName: putInHand
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8965652
         functionName: ComboCheck
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.33333334
+      - time: 0.3122363
         functionName: activateHitbox
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.5232067
+      - time: 0.74261606
         functionName: deactivateHitbox
         data: 
         objectReferenceParameter: {instanceID: 0}

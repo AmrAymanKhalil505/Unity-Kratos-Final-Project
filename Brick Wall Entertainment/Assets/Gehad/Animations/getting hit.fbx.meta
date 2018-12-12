@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 203fe5ab3ed477a4fa82992a885429a7
+guid: 7299040822a4d364db6f4d760f7eae39
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -71,7 +71,7 @@ ModelImporter:
     400062: mixamorig:Spine
     400064: mixamorig:Spine1
     400066: mixamorig:Spine2
-    7400000: heavy attack 3
+    7400000: getting hit
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -102,10 +102,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: heavy attack 3
+      name: getting hit
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 149
+      lastFrame: 79
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -125,22 +125,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.99159664
-        functionName: ComboCheck
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.33333334
-        functionName: activateHitbox
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.5232067
-        functionName: deactivateHitbox
+      - time: 0.19409283
+        functionName: HitSound
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
