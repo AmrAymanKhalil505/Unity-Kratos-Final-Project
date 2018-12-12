@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour {
 				canDoubleJump = false;
 			}
 
-			if (Input.GetKeyDown(KeyCode.Space) && !inAir)
+			if (Input.GetKeyDown(KeyCode.Space) && !inAir && !animator.GetBool("blocking"))
 			{
 				animator.SetBool("jumping", true);
 				inAir = true;
@@ -157,6 +157,7 @@ public class PlayerController : MonoBehaviour {
 				animator.SetInteger("HeavyAttack", 0);
 				a.putInHand();
 				noOfClicks = 0;
+				canClick = true;
 				if(a.Axe.GetComponent<MeshCollider>().enabled){
 					a.deactivateHitbox();
 				}
@@ -175,6 +176,7 @@ public class PlayerController : MonoBehaviour {
 				transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
 				animator.SetInteger("HeavyAttack", 0);
 				noOfClicks = 0;
+				canClick = true;
 				if(a.Axe.GetComponent<MeshCollider>().enabled){
 					a.deactivateHitbox();
 				}
@@ -393,12 +395,42 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 		}
+
+		if(collision.gameObject.tag == "BossAxe" && GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetBool("AxeAttack")){
+			print("ouch");
+			if(!immune){
+				currentHealth -= 10;
+				if(currentHealth == 0){
+					animator.SetTrigger("Dead");
+					Dead = true;
+				}
+				else{
+					animator.SetTrigger("hit");
+				}
+			}			
+		}
 	}
 
 	void OnCollisionExit(Collision collision){
 		if(collision.gameObject.tag == "Ground" && !animator.GetBool("jumping")){
 			animator.SetBool("landing",false);
 			inAir = true;
+		}
+	}
+
+	void OnTriggerEnter(Collider collider){
+		if(collider.tag == "BossAxe" && GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetBool("AxeAttack")){
+			print("ouch");
+			if(!immune && !Dead){
+				currentHealth -= 10;
+				if(currentHealth == 0){
+					animator.SetTrigger("Dead");
+					Dead = true;
+				}
+				else{
+					animator.SetTrigger("hit");
+				}
+			}			
 		}
 	}
 

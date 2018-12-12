@@ -18,6 +18,12 @@ public class endAttackOnExit : StateMachineBehaviour {
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.SetBool("AxeAttack",false);
+        animator.ResetTrigger("MagicAttack");
+        animator.ResetTrigger("StompAttack");
+        animator.ResetTrigger("HornsAttack");
+        animator.SetBool("SwipeAttack",false);
+        animator.SetBool("KickAttack",false);
         animator.SetBool("Attack",false);
     }
 

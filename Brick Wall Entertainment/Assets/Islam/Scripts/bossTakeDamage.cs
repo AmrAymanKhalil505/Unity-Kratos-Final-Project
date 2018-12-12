@@ -10,11 +10,11 @@ public class bossTakeDamage : MonoBehaviour {
     public ParticleSystem rightBlood;
     public ParticleSystem leftBlood;
     Animator anim;
-    int leftArmHealth;
-    int rightArmHealth;
-    int legsHealth;
-    float health;
-    float maxHealth;
+    public int leftArmHealth;
+    public int rightArmHealth;
+    public int legsHealth;
+    public float health;
+    public float maxHealth;
 
 	// Use this for initialization
 	void Start () {

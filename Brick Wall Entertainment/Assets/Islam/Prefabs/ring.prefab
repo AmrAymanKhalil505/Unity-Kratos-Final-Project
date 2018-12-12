@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114763134025204844}
   m_Layer: 0
   m_Name: ring
-  m_TagString: Untagged
+  m_TagString: Ring
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

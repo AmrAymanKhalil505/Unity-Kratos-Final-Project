@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class startAttack : StateMachineBehaviour {
     float time=0;
-    public float delay;
+    public float delay = 3;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -29,12 +29,12 @@ public class startAttack : StateMachineBehaviour {
         {
             animator.SetBool("Attack", true);
 
-            animator.ResetTrigger("AxeAttack");
-            animator.ResetTrigger("MagicAttack");
-            animator.ResetTrigger("StompAttack");
-            animator.ResetTrigger("HornsAttack");
-            animator.ResetTrigger("SwipeAttack");
-            animator.ResetTrigger("KickAttack");
+            // animator.ResetTrigger("AxeAttack");
+            // animator.ResetTrigger("MagicAttack");
+            // animator.ResetTrigger("StompAttack");
+            // animator.ResetTrigger("HornsAttack");
+            // animator.ResetTrigger("SwipeAttack");
+            // animator.ResetTrigger("KickAttack");
             int choice = -1;
             //int choice = 3;
             //animator.SetTrigger("HornsAttack");
@@ -48,7 +48,7 @@ public class startAttack : StateMachineBehaviour {
                 if (choice == 0)
                 {
                     if (!rightArmInjured)
-                        animator.SetTrigger("AxeAttack");
+                        animator.SetBool("AxeAttack",true);
                     else
                         choice = -1;
                 }
@@ -72,13 +72,13 @@ public class startAttack : StateMachineBehaviour {
                 else if (choice == 4 || choice == 5)
                 {
                     if(!legsInjured)
-                        animator.SetTrigger("KickAttack");
+                        animator.SetBool("KickAttack",true);
                     else
                         choice = -1;
                 }else if (choice == 6 || choice == 7)
                 {
                     if (!leftArmInjured)
-                        animator.SetTrigger("SwipeAttack");
+                        animator.SetBool("SwipeAttack",true);
                     else
                         choice = -1;
                 }

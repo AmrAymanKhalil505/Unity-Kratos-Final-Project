@@ -20,6 +20,14 @@ TagManager:
   - RangedEnemyWeapon
   - Boss
   - Ground
+  - Ring
+  - Rock
+  - MagicBall
+  - AttackWave
+  - BossAxe
+  - BossLeftHand
+  - BossLeg
+  - MagicAttackBall
   layers:
   - Default
   - TransparentFX
