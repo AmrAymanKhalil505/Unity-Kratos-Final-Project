@@ -2164,6 +2164,11 @@ MonoBehaviour:
   rightArm: {fileID: 1173646651699900}
   rightBlood: {fileID: 198425258526246318}
   leftBlood: {fileID: 198725414497590564}
+  leftArmHealth: 0
+  rightArmHealth: 0
+  legsHealth: 0
+  health: 0
+  maxHealth: 0
 --- !u!114 &114194589124919888
 MonoBehaviour:
   m_ObjectHideFlags: 1

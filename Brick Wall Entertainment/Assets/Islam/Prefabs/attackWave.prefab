@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 64217208202331738}
   m_Layer: 0
   m_Name: attackWaveMesh
-  m_TagString: Untagged
+  m_TagString: AttackWave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

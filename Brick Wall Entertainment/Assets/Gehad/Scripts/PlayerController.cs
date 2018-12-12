@@ -99,13 +99,13 @@ public class PlayerController : MonoBehaviour {
 			// 	animator.SetBool("LightAttack",true);
 			// }
 
-			if(Input.GetKeyDown(KeyCode.Space) && inAir && canDoubleJump){
+			if(Input.GetKeyDown(KeyCode.Space) && inAir && canDoubleJump && !inCombo){
 				animator.SetBool("DoubleJump",true);
 				animator.SetBool("jumping", false);
 				canDoubleJump = false;
 			}
 
-			if (Input.GetKeyDown(KeyCode.Space) && !inAir && !animator.GetBool("blocking"))
+			if (Input.GetKeyDown(KeyCode.Space) && !inAir && !animator.GetBool("blocking") && !inCombo)
 			{
 				animator.SetBool("jumping", true);
 				inAir = true;
@@ -420,7 +420,6 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider){
 		if(collider.tag == "BossAxe" && GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetBool("AxeAttack")){
-			print("ouch");
 			if(!immune && !Dead){
 				currentHealth -= 10;
 				if(currentHealth == 0){
@@ -429,8 +428,94 @@ public class PlayerController : MonoBehaviour {
 				}
 				else{
 					animator.SetTrigger("hit");
+					animator.SetInteger("HeavyAttack", 0);
+					noOfClicks = 0;
 				}
 			}			
+		}
+		if(collider.tag == "BossLeftHand" && GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetBool("SwipeAttack")){
+			if(!immune && !Dead){
+				currentHealth -= 10;
+				if(currentHealth == 0){
+					animator.SetTrigger("Dead");
+					Dead = true;
+				}
+				else{
+					animator.SetTrigger("hit");
+					animator.SetInteger("HeavyAttack", 0);
+					noOfClicks = 0;
+				}
+			}			
+		}
+		if(collider.tag == "BossLeg" && GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetBool("KickAttack")){
+			if(!immune && !Dead){
+				currentHealth -= 10;
+				if(currentHealth == 0){
+					animator.SetTrigger("Dead");
+					Dead = true;
+				}
+				else{
+					animator.SetTrigger("hit");
+					animator.SetInteger("HeavyAttack", 0);
+					noOfClicks = 0;
+				}
+			}			
+		}
+		if(collider.tag == "Ring"){
+			if(!immune && !Dead){
+				currentHealth -= 10;
+				if(currentHealth == 0){
+					animator.SetTrigger("Dead");
+					Dead = true;
+				}
+				else{
+					animator.SetTrigger("hit");
+					animator.SetInteger("HeavyAttack", 0);
+					noOfClicks = 0;
+				}
+			}
+		}
+		if(collider.tag == "MagicAttackBall"){
+			if(!immune && !Dead){
+				currentHealth -= 10;
+				if(currentHealth == 0){
+					animator.SetTrigger("Dead");
+					Dead = true;
+				}
+				else{
+					animator.SetTrigger("hit");
+					animator.SetInteger("HeavyAttack", 0);
+					noOfClicks = 0;
+				}
+			}
+		}
+		if(collider.tag == "AttackWave"){
+			if(!immune && !Dead){
+				currentHealth -= 10;
+				if(currentHealth == 0){
+					animator.SetTrigger("Dead");
+					Dead = true;
+				}
+				else{
+					animator.SetTrigger("hit");
+					animator.SetInteger("HeavyAttack", 0);
+					noOfClicks = 0;
+				}
+			}
+		}
+		if(collider.tag == "Rock"){
+			if(!immune && !Dead){
+				currentHealth -= 10;
+				if(currentHealth == 0){
+					animator.SetTrigger("Dead");
+					Dead = true;
+				}
+				else{
+					animator.SetTrigger("hit");
+					animator.SetInteger("HeavyAttack", 0);
+					noOfClicks = 0;
+				}
+			}
 		}
 	}
 
