@@ -13,6 +13,11 @@ TagManager:
   - Undefined
   - FrontBackPlatforms
   - RightLeftPlatforms
+  - HeavyEnemy
+  - RangedEnemy
+  - LightEnemyWeapon
+  - HeavyEnemyWeapon
+  - RangedEnemyWeapon
   layers:
   - Default
   - TransparentFX

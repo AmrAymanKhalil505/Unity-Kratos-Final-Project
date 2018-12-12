@@ -384,6 +384,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1809871240081924, guid: d1b6ed4adef40fb44a8430db74b6f5d8, type: 2}
+      propertyPath: m_TagString
+      value: HeavyEnemyWeapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1b6ed4adef40fb44a8430db74b6f5d8, type: 2}
   m_IsPrefabAsset: 0
