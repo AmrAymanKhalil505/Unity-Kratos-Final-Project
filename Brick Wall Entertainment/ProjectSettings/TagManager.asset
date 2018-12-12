@@ -18,6 +18,8 @@ TagManager:
   - LightEnemyWeapon
   - HeavyEnemyWeapon
   - RangedEnemyWeapon
+  - Boss
+  - Ground
   layers:
   - Default
   - TransparentFX

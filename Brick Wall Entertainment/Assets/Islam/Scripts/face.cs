@@ -14,7 +14,9 @@ public class face : MonoBehaviour {
 	void Update () {
         bool roared = anim.GetBool("Roared");
         bool attack = anim.GetBool("Attack");
-        if (roared&&!attack)
+        bool dead = anim.GetBool("Dead");
+        bool Dying = anim.GetBool("Dying");
+        if (roared&&!attack&&!dead&&!Dying)
         {
             Vector3 oldForward = transform.forward.normalized;
             oldForward.y = 0;

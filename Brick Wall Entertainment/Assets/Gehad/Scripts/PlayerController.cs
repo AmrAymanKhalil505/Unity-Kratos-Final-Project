@@ -375,7 +375,7 @@ public class PlayerController : MonoBehaviour {
     }
 
 	void OnCollisionEnter(Collision collision){
-		if(collision.gameObject.tag == "Plane"){
+		if(collision.gameObject.tag == "Ground"){
 			if(inAir){
 				animator.SetBool("landing",true);
 				inAir = false;
@@ -396,7 +396,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnCollisionExit(Collision collision){
-		if(collision.gameObject.tag == "Plane" && !animator.GetBool("jumping")){
+		if(collision.gameObject.tag == "Ground" && !animator.GetBool("jumping")){
 			animator.SetBool("landing",false);
 			inAir = true;
 		}
