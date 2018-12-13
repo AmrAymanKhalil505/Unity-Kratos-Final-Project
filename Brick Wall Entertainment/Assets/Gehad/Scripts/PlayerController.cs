@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour {
 
 	public GameObject AxeParticles;
 	private bool Dead = false;
+	private bool gettinHit = false;
 
 	void Start () {
 		animator = GetComponent<Animator>();
@@ -69,6 +70,9 @@ public class PlayerController : MonoBehaviour {
 		// if(animator.GetCurrentAnimatorStateInfo(0).IsName("Idle")){
 		// 	a.putOnSpine();
 		// }
+		if(Dead){
+			currentHealth = 0;
+		}
 		if(!Dead){
 
 			if(Input.GetKeyDown(KeyCode.R) && currentRage >= RageMeter){
@@ -204,7 +208,7 @@ public class PlayerController : MonoBehaviour {
 
 			if(input != Vector2.zero && running && !animator.GetBool("Rolling"))
 			{
-				transform.Translate (transform.forward * 4f * currentSpeed1 * Time.deltaTime, Space.World);
+				transform.Translate (transform.forward * 3f * currentSpeed1 * Time.deltaTime, Space.World);
 			}
 
 			if(input != Vector2.zero && !running){
@@ -234,7 +238,7 @@ public class PlayerController : MonoBehaviour {
 				inCombo = false;
 			}
 
-			if(inCombo){
+			if(inCombo || gettinHit){
 				// animator.SetBool("walking",false);
 				// running = false;
 				currentSpeed1 = 0;
@@ -387,9 +391,10 @@ public class PlayerController : MonoBehaviour {
         }      
     }
 
-	void OnCollisionEnter(Collision collision){
+	void OnCollisionStay(Collision collision){
 		if(collision.gameObject.tag == "Ground"){
 			if(inAir){
+				animator.SetBool("jumping",false);
 				animator.SetBool("landing",true);
 				inAir = false;
 			}
@@ -591,5 +596,13 @@ public class PlayerController : MonoBehaviour {
 	void endRage(){
 		RageMode = false;
 		AxeParticles.SetActive(false);
+	}
+
+	void currentSpeedZero(){
+		gettinHit = true;
+	}
+
+	void currentSpeedSet(){
+		gettinHit = false;
 	}
 }

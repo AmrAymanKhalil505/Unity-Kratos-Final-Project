@@ -31,7 +31,8 @@ namespace BrickWallEntertainment.Managers
 
         public void StartGame()
         {
-            SceneManager.LoadScene("Scenes/WhyNotBranches/GameScene");
+            //SceneManager.LoadScene("Scenes/WhyNotBranches/GameScene");
+            SceneManager.LoadScene("Integration/Normal Level/Normal Level");
             EventManager.emitGameState(GameState.LEVEL_1);
         }
 

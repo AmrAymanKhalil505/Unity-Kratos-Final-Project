@@ -24,7 +24,7 @@ namespace BrickWallEntertainment
                 //AudioManager.Instance.Play("HealthChestSound");
                 animator.SetTrigger("OpenHealthChest");
                 //HEAL KRATOS HERE
-                other.GetComponent<PlayerController>().currentHealth += 50; 
+                other.GetComponent<PlayerController>().currentHealth = other.GetComponent<PlayerController>().maxHealth; 
             }
         }
     }
