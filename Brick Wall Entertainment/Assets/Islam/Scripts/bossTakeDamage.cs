@@ -45,53 +45,65 @@ public class bossTakeDamage : MonoBehaviour {
 
     public void takeRightArmDamage()
     {
-        rightArmHealth--;
-        if (rightArmHealth == 0)
+        if (anim.GetBool("Roared"))
         {
-            anim.SetBool("RightArmInjured", true);
-            axe.GetComponent<Rigidbody>().isKinematic = false;
-            axe.GetComponent<Collider>().isTrigger = false;
-            axe.transform.parent = null;
-            rightArm.transform.localScale = new Vector3(0, 0, 0);
-            rightBlood.Play();
-            health -= .2f * health;
-            anim.SetBool("Stunned", true);
+            rightArmHealth--;
+            if (rightArmHealth == 0)
+            {
+                anim.SetBool("RightArmInjured", true);
+                axe.GetComponent<Rigidbody>().isKinematic = false;
+                axe.GetComponent<Collider>().isTrigger = false;
+                axe.transform.parent = null;
+                rightArm.transform.localScale = new Vector3(0, 0, 0);
+                rightBlood.Play();
+                health -= .2f * health;
+                anim.SetBool("Stunned", true);
+            }
         }
     }
 
     public void takeLeftArmDamage()
     {
-        leftArmHealth--;
-        if (leftArmHealth == 0)
+        if (anim.GetBool("Roared"))
         {
-            anim.SetBool("LeftArmInjured", true);
-            magicBall.GetComponent<Rigidbody>().isKinematic = false;
-            magicBall.GetComponent<Collider>().isTrigger = false;
-            magicBall.transform.parent = null;
-            leftArm.transform.localScale = new Vector3(0, 0, 0);
-            leftBlood.Play();
-            health -= .2f * maxHealth;
-            anim.SetBool("Stunned", true);
+            leftArmHealth--;
+            if (leftArmHealth == 0)
+            {
+                anim.SetBool("LeftArmInjured", true);
+                magicBall.GetComponent<Rigidbody>().isKinematic = false;
+                magicBall.GetComponent<Collider>().isTrigger = false;
+                magicBall.transform.parent = null;
+                leftArm.transform.localScale = new Vector3(0, 0, 0);
+                leftBlood.Play();
+                health -= .2f * maxHealth;
+                anim.SetBool("Stunned", true);
+            }
         }
     }
 
     public void takeLegsDamage()
     {
-        legsHealth--;
-        if (legsHealth == 0)
+        if (anim.GetBool("Roared"))
         {
-            anim.SetBool("LegsInjured", true);
-            health -= .2f * maxHealth;
-            anim.SetBool("Stunned", true);
-        }
-        if (legsHealth < 0)
-        {
-            // health -= .05f * maxHealth;
+            legsHealth--;
+            if (legsHealth == 0)
+            {
+                anim.SetBool("LegsInjured", true);
+                health -= .2f * maxHealth;
+                anim.SetBool("Stunned", true);
+            }
+            if (legsHealth < 0)
+            {
+                // health -= .05f * maxHealth;
+            }
         }
     }
 
     public void takeOtherDamage()
     {
-        health -= .05f * maxHealth;
+        if (anim.GetBool("Roared"))
+        {
+            health -= .05f * maxHealth;
+        }
     }
 }

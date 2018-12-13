@@ -8,6 +8,7 @@ namespace BrickWallEntertainment
     {
         private Animator animator;
 		private bool used;
+        
 
         void Start()
         {
@@ -17,12 +18,13 @@ namespace BrickWallEntertainment
 
         void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag.Equals("Kratos") && !used) //&&Kratos Presses E?
+            if (other.gameObject.tag.Equals("Kratos")) //&&Kratos Presses E?
             {
 				used = true;
-                AudioManager.Instance.Play("HealthChestSound");
+                //AudioManager.Instance.Play("HealthChestSound");
                 animator.SetTrigger("OpenHealthChest");
                 //HEAL KRATOS HERE
+                other.GetComponent<PlayerController>().currentHealth += 50; 
             }
         }
     }

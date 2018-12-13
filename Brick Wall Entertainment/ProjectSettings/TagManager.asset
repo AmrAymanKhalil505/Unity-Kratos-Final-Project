@@ -28,6 +28,9 @@ TagManager:
   - BossLeftHand
   - BossLeg
   - MagicAttackBall
+  - lava
+  - PitSpikes
+  - Spikes
   layers:
   - Default
   - TransparentFX

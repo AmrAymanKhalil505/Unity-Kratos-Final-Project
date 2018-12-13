@@ -102,14 +102,14 @@ public class PlayerController : MonoBehaviour {
 			if(Input.GetKeyDown(KeyCode.Space) && inAir && canDoubleJump && !inCombo){
 				animator.SetBool("DoubleJump",true);
 				animator.SetBool("jumping", false);
-				this.GetComponent<Rigidbody>().AddForce(new Vector3(0,400,0),ForceMode.Impulse);
+				this.GetComponent<Rigidbody>().AddForce(new Vector3(0,200,0),ForceMode.Impulse);
 				canDoubleJump = false;
 			}
 
 			if (Input.GetKeyDown(KeyCode.Space) && !inAir && !animator.GetBool("blocking") && !inCombo)
 			{
 				animator.SetBool("jumping", true);
-				this.GetComponent<Rigidbody>().AddForce(new Vector3(0,300,0),ForceMode.Impulse);
+				this.GetComponent<Rigidbody>().AddForce(new Vector3(0,200,0),ForceMode.Impulse);
 				inAir = true;
 				animator.SetBool("landing",false);
 				canDoubleJump = true;
@@ -124,6 +124,15 @@ public class PlayerController : MonoBehaviour {
 			{
 				// transform.Translate(new Vector3(0, 0.4f, 0));
 			}
+
+            if (inAir)
+            {
+                currentSpeed1 = 1;
+            }
+            //if (!inAir)
+            //{
+            //    currentSpeed1 = currentSpeed;
+            //}
 
 			// if (animator.GetCurrentAnimatorStateInfo(0).IsName("Falling 0"))
 			// {
@@ -397,7 +406,32 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 		}
-	}
+        if(collision.gameObject.tag == "lava" || collision.gameObject.tag == "PitSpikes")
+        {
+            animator.SetTrigger("Dead");
+            Dead = true;
+        }
+
+        if (collision.gameObject.tag == "Rock" )
+        {
+            if (!immune && !Dead)
+            {
+                currentHealth -= 10;
+                if (currentHealth == 0)
+                {
+                    animator.SetTrigger("Dead");
+                    Dead = true;
+                }
+                else
+                {
+                    animator.SetTrigger("hit");
+                    animator.SetInteger("HeavyAttack", 0);
+                    noOfClicks = 0;
+                    canClick = true;
+                }
+            }
+        }
+    }
 
 	void OnCollisionExit(Collision collision){
 		if(collision.gameObject.tag == "Ground" && !animator.GetBool("jumping")){
@@ -498,7 +532,7 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 		}
-		if(collider.tag == "Rock"){
+		if(collider.tag == "Rock" || collider.tag == "Spikes"){
 			if(!immune && !Dead){
 				currentHealth -= 10;
 				if(currentHealth == 0){
