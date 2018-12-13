@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WhyNotBranches/MainMenuScene.unity
     guid: afd0777961ce7424b9dbd194bf01d329
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/WhyNotBranches/GameScene.unity
-    guid: 05a60a986647a7543afbf2551a73aaab
+    path: Assets/Integration/Normal Level/Normal Level.unity
+    guid: 8447910e46d3682448b5cd01cfc42017
   m_configObjects: {}

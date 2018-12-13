@@ -13149,7 +13149,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1711984570}
-  - component: {fileID: 1711984575}
   - component: {fileID: 1711984574}
   - component: {fileID: 1711984573}
   - component: {fileID: 1711984572}
@@ -13188,7 +13187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0186187154bcda458cccee871ba7ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  killCollider: {fileID: 1711984575}
+  killCollider: {fileID: 0}
   FallCollider: {fileID: 1711984574}
 --- !u!95 &1711984572
 Animator:
@@ -13318,19 +13317,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.98, y: 3.04, z: 5.3070226}
   m_Center: {x: -1.92, y: -3.29, z: 9.56}
---- !u!135 &1711984575
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 135539272109008186, guid: f841259b3ede8334fa81f5f2933ab21f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1711984569}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3.3
-  m_Center: {x: 1.79, y: 6.28, z: 20.94}
 --- !u!1 &1714389223
 GameObject:
   m_ObjectHideFlags: 0
@@ -15071,6 +15057,7 @@ GameObject:
   - component: {fileID: 1966628297}
   - component: {fileID: 1966628299}
   - component: {fileID: 1966628298}
+  - component: {fileID: 1966628300}
   m_Layer: 0
   m_Name: default
   m_TagString: Rock
@@ -15136,6 +15123,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1966628296}
   m_Mesh: {fileID: 4300000, guid: f8f99d76633441b47989755747cc15a3, type: 3}
+--- !u!135 &1966628300
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1966628296}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.441445
+  m_Center: {x: -0.022202969, y: 1.2119929, z: 0.08077847}
 --- !u!1001 &1970066833
 Prefab:
   m_ObjectHideFlags: 0
