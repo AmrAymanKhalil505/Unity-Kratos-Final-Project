@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BrickWallEntertainment.Managers;
 
 public class SpikeTrapScript : MonoBehaviour {
     private Animator anim;
@@ -21,10 +22,9 @@ public class SpikeTrapScript : MonoBehaviour {
     {
         if (other.gameObject.tag == "Kratos")
         {
-            audioSource.PlayOneShot(SpikeTriggeredSound, 0.1F);
+            AudioManager.Instance.Play("SpikeTrap_Sound");
             //anim.SetTrigger("SpikeTrigger");
             anim.Play("TriggeredSpikes");
-            
         }
     }
 }

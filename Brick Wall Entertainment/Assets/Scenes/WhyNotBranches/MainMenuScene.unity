@@ -1067,6 +1067,13 @@ MonoBehaviour:
     loop: 0
     volume: 0.3
     pitch: 1
+  - soundName: SpikeTrap_Sound
+    clip: {fileID: 8300000, guid: 7e21b099fae7aaa4eb0dfcadd87e6c1a, type: 3}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
+    loop: 0
+    volume: 0.3
+    pitch: 1
 --- !u!114 &535113050
 MonoBehaviour:
   m_ObjectHideFlags: 0
