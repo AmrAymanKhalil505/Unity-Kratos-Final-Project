@@ -29,7 +29,7 @@ public class BossDoorScript : MonoBehaviour {
             anim.Play("DoorClose");
             m_Collider.enabled = false;
 
-            //KILL KRATOS HERE
+            
         }
     }
 }

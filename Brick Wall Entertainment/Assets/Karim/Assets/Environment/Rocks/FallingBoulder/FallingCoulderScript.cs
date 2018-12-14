@@ -39,7 +39,7 @@ public class FallingCoulderScript : MonoBehaviour {
     }
     void blockRock()
     {
-        killCollider.isTrigger = false; //to make tock impassable and no longer kill you
+        killCollider.isTrigger = false; //to make rock impassable and no longer kill you
     }
 
 
