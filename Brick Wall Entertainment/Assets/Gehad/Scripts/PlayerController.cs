@@ -407,12 +407,13 @@ public class PlayerController : MonoBehaviour {
 				inAir = false;
 			}
 		}
-        if(collision.gameObject.tag == "lava" || collision.gameObject.tag == "PitSpikes")
+	}
+	void OnCollisionEnter(Collision collision){
+		if(collision.gameObject.tag == "lava" || collision.gameObject.tag == "PitSpikes")
         {
             animator.SetTrigger("Dead");
             Dead = true;
         }
-
         if (collision.gameObject.tag == "Rock" )
         {
             if (!immune && !Dead)

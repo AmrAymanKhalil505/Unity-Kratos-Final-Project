@@ -625,38 +625,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114015748139540244, guid: ddfed74ae21080d459932188fa273f63,
-        type: 2}
-      propertyPath: KratosTag
-      value: Kratos
-      objectReference: {fileID: 0}
-    - target: {fileID: 114015748139540244, guid: ddfed74ae21080d459932188fa273f63,
-        type: 2}
-      propertyPath: AudioVolume
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114015748139540244, guid: ddfed74ae21080d459932188fa273f63,
-        type: 2}
-      propertyPath: DistanceToNotify
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114015748139540244, guid: ddfed74ae21080d459932188fa273f63,
-        type: 2}
-      propertyPath: BackingDownTimerGap
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 1962664037473496, guid: ddfed74ae21080d459932188fa273f63, type: 2}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1504482800424330, guid: ddfed74ae21080d459932188fa273f63, type: 2}
-      propertyPath: m_TagString
-      value: LightEnemyWeapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 136111206454655870, guid: ddfed74ae21080d459932188fa273f63,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddfed74ae21080d459932188fa273f63, type: 2}
@@ -7188,56 +7159,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114661510812373186, guid: 723bb93cddaf35b4d935a88ab2514939,
-        type: 2}
-      propertyPath: KratosTag
-      value: Kratos
-      objectReference: {fileID: 0}
-    - target: {fileID: 114812076710964620, guid: 723bb93cddaf35b4d935a88ab2514939,
-        type: 2}
-      propertyPath: KratosTag
-      value: Kratos
-      objectReference: {fileID: 0}
-    - target: {fileID: 1016270913711518, guid: 723bb93cddaf35b4d935a88ab2514939, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1919611765363652, guid: 723bb93cddaf35b4d935a88ab2514939, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114661510812373186, guid: 723bb93cddaf35b4d935a88ab2514939,
-        type: 2}
-      propertyPath: BackingDownTimerGap
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114661510812373186, guid: 723bb93cddaf35b4d935a88ab2514939,
-        type: 2}
-      propertyPath: DistanceToKratosTooClose
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 95131982879094262, guid: 723bb93cddaf35b4d935a88ab2514939,
-        type: 2}
-      propertyPath: m_UpdateMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 95131982879094262, guid: 723bb93cddaf35b4d935a88ab2514939,
-        type: 2}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1297502622183628, guid: 723bb93cddaf35b4d935a88ab2514939, type: 2}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 135081112229509440, guid: 723bb93cddaf35b4d935a88ab2514939,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416881688015880, guid: 723bb93cddaf35b4d935a88ab2514939, type: 2}
-      propertyPath: m_TagString
-      value: RangedEnemyWeapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 723bb93cddaf35b4d935a88ab2514939, type: 2}

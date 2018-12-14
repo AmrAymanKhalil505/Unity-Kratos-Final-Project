@@ -1336,7 +1336,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1297502622183628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 65.229675, y: 9.998167, z: 139.31747}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4739858456934950}
@@ -2421,8 +2421,8 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f09582807fe77f9489aca8fcea9bd4ee, type: 3}
   m_Controller: {fileID: 9100000, guid: 65cb447e5171b304484637a6494d5edf, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 1
+  m_CullingMode: 0
+  m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -2459,14 +2459,14 @@ MonoBehaviour:
   AudioClipDeath: {fileID: 0}
   AudioClipStep: {fileID: 0}
   AudioVolume: 0
-  KratosTag: Player
-  MaxHP: 100
+  KratosTag: Kratos
+  MaxHP: 50
   RotationSpeed: 8
   DistanceToNotify: 15
   DistanceToKratosToHit: 11
   DistanceToKratosTooClose: 7
   BackingDownTime: 0
-  BackingDownTimerGap: 1.2
+  BackingDownTimerGap: 5
   BackMultiplier: -3
   RightHand: {fileID: 1416881688015880}
 --- !u!114 &114812076710964620
@@ -2481,7 +2481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spell: {fileID: 1852983381155538, guid: 9ebf29828ddccf64a90a5a90135e8c54, type: 2}
-  KratosTag: Player
+  KratosTag: Kratos
   ProjectileSpeed: 3
 --- !u!135 &135081112229509440
 SphereCollider:
@@ -2490,7 +2490,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1016270913711518}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

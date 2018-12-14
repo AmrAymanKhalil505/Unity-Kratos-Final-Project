@@ -16,6 +16,8 @@ public class LightEnemyBehaviour : MonoBehaviour {
 	string CanHit = "CanHit";
 	string GotHit = "GotHit";
 
+	bool tookXP = false;
+
 
 
 	[Header ("Audio related")]
@@ -154,9 +156,12 @@ public class LightEnemyBehaviour : MonoBehaviour {
 	public void damage(int x){
 		if(Anim.GetInteger(HP) - x <= 0){
 			Anim.SetTrigger("Death");
-			GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().currentXP += 50;
+			if(!tookXP){
+				GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().currentXP += 50;
+				tookXP = true;
+			}
 		}
-		if(!Anim.GetBool(GotHit)){
+		if(!Anim.GetBool(GotHit) && !tookXP){
 			Anim.SetInteger(HP, Anim.GetInteger(HP)-x);
 			hit();
 		}
@@ -193,5 +198,9 @@ public class LightEnemyBehaviour : MonoBehaviour {
 
 	public void UnBlock(){
 		Anim.SetBool("Block",false);
+	}
+
+	public void Die(){
+		Destroy(this.gameObject);
 	}
 }

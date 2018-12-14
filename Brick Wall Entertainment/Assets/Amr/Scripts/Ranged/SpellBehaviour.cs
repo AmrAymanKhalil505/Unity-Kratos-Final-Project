@@ -19,10 +19,11 @@ public class SpellBehaviour : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter(Collision collision)
-    {	
-		if(lifeTime<0){
-       		Destroy(gameObject);
+	void OnTriggerEnter(Collider collider)
+    {	if(collider.gameObject.tag != "Kratos"){
+			if(lifeTime<0){
+				Destroy(gameObject);
+			}
 		}
     }
 }

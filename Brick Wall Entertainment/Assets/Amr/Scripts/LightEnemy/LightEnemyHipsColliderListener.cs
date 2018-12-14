@@ -16,10 +16,20 @@ public class LightEnemyHipsColliderListener : MonoBehaviour {
     {	
 		if(TagAxeKratos == other.gameObject.tag){
 			if(GameObject.FindGameObjectWithTag("Kratos").GetComponent<Animator>().GetBool("LightAttack")){
-				LEB.damage(10);
+				if(GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().RageMode){
+					LEB.damage(2*10);
+				}
+				else{
+					LEB.damage(10);
+				}
 			}
 			else{
-				LEB.damage(30);
+				if(GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().RageMode){
+					LEB.damage(2*30);
+				}
+				else{
+					LEB.damage(30);
+				}
 			}
 			if(!GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().RageMode){
 				GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().currentRage += 5;

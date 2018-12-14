@@ -20,6 +20,7 @@ public class RangedBehaviour : MonoBehaviour {
 	string TooNear = "TooNear";
 	string BackingDownTimer = "BackingDownTimer";
 
+	bool tookXP = false;
 
 
 	[Header ("Audio related")]
@@ -50,6 +51,8 @@ public class RangedBehaviour : MonoBehaviour {
 	public float BackingDownTimerGap=2;
 	public float BackMultiplier = -3f;
 
+	private float gothitTimer = 0;
+
 	public GameObject RightHand;
 	void Start () {
 		Anim = GetComponent<Animator>();
@@ -70,6 +73,10 @@ public class RangedBehaviour : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
+		gothitTimer -= Time.deltaTime;
+		if(gothitTimer < 0){
+			doneGettingHit();
+		}
 		BackingDownTime-= Time.deltaTime;
 		if(Vector3.Distance(transform.position , KratosGO.transform.position) < DistanceToNotify){
 			notifyKratosApproch();
@@ -152,14 +159,20 @@ public class RangedBehaviour : MonoBehaviour {
 	public void damage(int x){
 		if(!Anim.GetBool(GotHit)){
 			Anim.SetInteger(HP, Anim.GetInteger(HP)-x);
-			if(Anim.GetInteger(HP)-x <= 0){
-				GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().currentXP += 50;
+			if(Anim.GetInteger(HP) <= 0){
+				if(!tookXP){
+					GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().currentXP += 50;
+					tookXP = true;
+				}
 			}
-			hit();
+			else{
+				hit();
+			}
 		}
 	}
 	public void hit(){
 		Anim.SetBool(GotHit, true);
+		gothitTimer = 1;
 	}
 	public void tooNearSet(bool isTooNear){
 		Anim.SetBool(TooNear, isTooNear);
@@ -194,4 +207,7 @@ public class RangedBehaviour : MonoBehaviour {
 		RightHand.GetComponent<SpellAttack>().attack();
 	}
 	
+	public void Die(){
+		Destroy(this.gameObject);
+	}
 }
