@@ -154,6 +154,7 @@ namespace BrickWallEntertainment.Managers
         {
             foreach (GameObject enemy in wave)
             {
+                if (enemy == null) continue;
                 LightEnemyBehaviour lebs = enemy.GetComponent<LightEnemyBehaviour>();
                 if (lebs != null && lebs.Anim.GetInteger("HP") > 0) return false;
 
