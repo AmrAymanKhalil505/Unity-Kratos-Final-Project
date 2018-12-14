@@ -215,6 +215,7 @@ namespace BrickWallEntertainment.Managers
             this.currentGameState = gameState;
             if (gameState == GameState.START_MENU)
             {
+                AudioManager.Instance.StopAll();
                 AudioManager.Instance.Play("MainMenuTheme");
             }
             else if (gameState == GameState.PAUSE_MENU
@@ -249,10 +250,11 @@ namespace BrickWallEntertainment.Managers
             {
                 StopAllCoroutines();
                 Time.timeScale = 1;
-                AudioManager.Instance.Play("NormalLevelTheme");
-                AudioManager.Instance.Play("BirdAmbient");
+                AudioManager.Instance.Stop("NormalLevelTheme");
+                AudioManager.Instance.Stop("BirdAmbient");
                 AudioManager.Instance.UnPauseAll();
-                AudioManager.Instance.Play("BossLevelTheme");
+                AudioManager.Instance.Pause("MainMenuTheme");
+                AudioManager.Instance.Play("BossBattleTheme");
                 if (!bossStarted)
                 {
                     bossStarted = true;

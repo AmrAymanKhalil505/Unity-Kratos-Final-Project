@@ -63,6 +63,12 @@ namespace BrickWallEntertainment.Managers
             Application.Quit();
         }
 
+        public void QuitToMainMenu()
+        {
+            SceneManager.LoadScene("Scenes/WhyNotBranches/MainMenuScene");
+            EventManager.emitGameState(GameState.START_MENU);
+        }
+
         public void MusicVolumeChange(float volume)
         {
             audioMixer.SetFloat("musicVolume", volume);
