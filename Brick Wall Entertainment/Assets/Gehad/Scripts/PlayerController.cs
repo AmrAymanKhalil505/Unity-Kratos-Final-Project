@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour {
 				canDoubleJump = false;
 			}
 
-			if (Input.GetKeyDown(KeyCode.Space) && !inAir && !animator.GetBool("blocking") && !inCombo)
+			if (Input.GetKeyDown(KeyCode.Space) && !inAir && !animator.GetBool("blocking") && !animator.GetBool("Rolling") && !inCombo)
 			{
 				animator.SetBool("jumping", true);
 				this.GetComponent<Rigidbody>().AddForce(new Vector3(0,200,0),ForceMode.Impulse);
@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour {
 				currentSpeed1 = currentSpeed;
 			}
 
-			if(Input.GetKey(KeyCode.LeftControl) && input != Vector2.zero && !animator.GetCurrentAnimatorStateInfo(0).IsName("Roll in place"))
+			if(Input.GetKey(KeyCode.LeftControl) && input != Vector2.zero && !animator.GetCurrentAnimatorStateInfo(0).IsName("Roll in place") && !inAir)
 			{
 				animator.SetBool("Rolling", true);
 				float targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraT.eulerAngles.y;

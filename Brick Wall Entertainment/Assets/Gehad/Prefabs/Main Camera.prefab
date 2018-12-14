@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c81a9cb6838c8f46b9cfbd81b4d0b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockCursor: 0
+  lockCursor: 1
   mouseSensitivity: 10
   target: {fileID: 0}
   dstFromTarget: 7
-  pitchMinMax: {x: -40, y: 85}
+  pitchMinMax: {x: 0, y: 85}
   rotationSmoothTime: 0.12

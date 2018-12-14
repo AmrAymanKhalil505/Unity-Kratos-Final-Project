@@ -16,11 +16,15 @@ public class UIManagerProxy : MonoBehaviour
     {
         if (GOWManager.Instance.currentGameState == GameState.GAME_OVER)
         {
+            Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
             deathMenuCanvas.SetActive(true);
             return;
         }
         if (GOWManager.Instance.currentGameState == GameState.GAME_WIN)
         {
+            Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
             winMenuCanvas.SetActive(true);
             return;
         }
@@ -30,16 +34,25 @@ public class UIManagerProxy : MonoBehaviour
         {
             if (GOWManager.Instance.currentGameState != GameState.PAUSE_MENU)
             {
+                Cursor.lockState = CursorLockMode.None;
+			    Cursor.visible = true;
                 UIManager.Instance.previousGameState = GOWManager.Instance.currentGameState;
                 EventManager.emitGameState(GameState.PAUSE_MENU);
                 pauseMenuCanvas.SetActive(true);
             }
             else
             {
+                Cursor.lockState = CursorLockMode.Locked;
+			    Cursor.visible = false;
                 pauseMenuCanvas.SetActive(false);
                 EventManager.emitGameState(UIManager.Instance.previousGameState);
             }
         }
+    }
+
+    public void StartGame()
+    {
+        UIManager.Instance.StartGame();
     }
 
     public void RestartGame()
@@ -63,5 +76,20 @@ public class UIManagerProxy : MonoBehaviour
     public void QuitToMainMenu()
     {
         UIManager.Instance.QuitToMainMenu();
+    }
+
+    public void MusicVolumeChange(float volume)
+    {
+        UIManager.Instance.MusicVolumeChange(volume);
+    }
+
+    public void SpeechVolumeChange(float volume)
+    {
+        UIManager.Instance.SpeechVolumeChange(volume);
+    }
+
+    public void EffectsVolumeChange(float volume)
+    {
+        UIManager.Instance.EffectsVolumeChange(volume);
     }
 }
