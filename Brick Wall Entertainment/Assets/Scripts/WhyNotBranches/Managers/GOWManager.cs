@@ -76,10 +76,11 @@ namespace BrickWallEntertainment.Managers
             {
                 GameObject prefab = prefabs[i];
                 int numberOfInstances = (ratios[i] * numberOfEnemiesPerWave) / sumRatios;
-                while (j < wavePrefab.Length)
+                while (j < wavePrefab.Length && numberOfInstances > 0)
                 {
                     wavePrefab[j] = prefab;
                     j++;
+                    numberOfInstances--;
                 }
             }
             wave = new GameObject[numberOfEnemiesPerWave];
