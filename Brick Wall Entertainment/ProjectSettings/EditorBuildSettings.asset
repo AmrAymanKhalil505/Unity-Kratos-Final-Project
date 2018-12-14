@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Integration/Normal Level/Normal Level.unity
     guid: 8447910e46d3682448b5cd01cfc42017
+  - enabled: 1
+    path: Assets/Integration/Boss Level/Boss Level.unity
+    guid: 0cb0501efca6b9144a41be154bfe71ef
   m_configObjects: {}

@@ -22,8 +22,9 @@ public class SpikeTrapScript : MonoBehaviour {
         if (other.gameObject.tag == "Kratos")
         {
             audioSource.PlayOneShot(SpikeTriggeredSound, 0.1F);
+            //anim.SetTrigger("SpikeTrigger");
             anim.Play("TriggeredSpikes");
-            //KILL KRATOS HERE
+            
         }
     }
 }
