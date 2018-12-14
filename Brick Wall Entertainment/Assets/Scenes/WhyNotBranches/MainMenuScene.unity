@@ -284,19 +284,36 @@ MonoBehaviour:
   sounds:
   - soundName: BirdAmbient
     clip: {fileID: 8300000, guid: 7195194a06594c349a7ba5f9820abd71, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
     loop: 1
     volume: 0.4
     pitch: 1
   - soundName: SpikeTrapSound
     clip: {fileID: 8300000, guid: 7e21b099fae7aaa4eb0dfcadd87e6c1a, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
     loop: 0
     volume: 0.3
     pitch: 1
   - soundName: HealthChestSound
     clip: {fileID: 8300000, guid: 242b776d986fcf54b9cdae6fe83a8c86, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: FallingBoulder
+    clip: {fileID: 8300000, guid: d642d53f4eef5e940821470eccdbb7f9, type: 3}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
+    loop: 0
+    volume: 0.4
+    pitch: 1
+  - soundName: BossDying
+    clip: {fileID: 8300000, guid: ae07c0bc8ebe6d9479bae28dea2ac2f8, type: 3}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
     loop: 0
     volume: 0.3
     pitch: 1
@@ -327,8 +344,7 @@ MonoBehaviour:
   numberOfWaves: 3
   numberOfEnemiesPerWave: 4
   spawnGroupsTag: EnemySpawn
-  SpawnGroups:
-  - {fileID: 0}
+  SpawnGroups: []
   prefabs:
   - {fileID: 1962664037473496, guid: ddfed74ae21080d459932188fa273f63, type: 2}
   - {fileID: 1297502622183628, guid: 723bb93cddaf35b4d935a88ab2514939, type: 2}

@@ -2,37 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using BrickWallEntertainment.Managers;
+
 //MUST INSERT KILL LOGIC ON KRATOS WHEN ROCK FALLS ON HIM.
-public class FallingCoulderScript : MonoBehaviour {
+public class FallingCoulderScript : MonoBehaviour
+{
     public SphereCollider killCollider;
     public BoxCollider FallCollider;
-    private Animator anim;
-    private int  counter;
-    AudioSource audioData;
+    private Animator animator;
+    private int counter;
 
-    // Use this for initialization
-    void Start () {
-        anim = GetComponent<Animator>();
-        audioData = GetComponent<AudioSource>();
+    void Start()
+    {
+        animator = GetComponent<Animator>();
         counter = 0;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Kratos" && counter==0)
+        if (other.gameObject.tag.Equals("Kratos") && counter == 0)
         {
-            audioData.Play(0);
+            AudioManager.Instance.Play("FallingBoulder");
             counter++;
-            anim.SetTrigger("RockFall");
+            animator.SetTrigger("RockFall");
             Invoke("blockRock", 1);//this will happen after 2 seconds
 
         }
-        if(other.gameObject.tag == "Kratos" && counter == 1)
+        if (other.gameObject.tag == "Kratos" && counter == 1)
         {
             //KILL KRATOS HERE 
         }
@@ -41,6 +37,4 @@ public class FallingCoulderScript : MonoBehaviour {
     {
         killCollider.isTrigger = false; //to make rock impassable and no longer kill you
     }
-
-
 }
