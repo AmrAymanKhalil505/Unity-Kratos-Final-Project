@@ -9,8 +9,10 @@ namespace BrickWallEntertainment.Managers
         PAUSE_MENU,
         START_MENU,
         LEVEL_1,
+        BOSS_LEVEL,
         GAME_OVER,
         GAME_RESTART,
+        GAME_WIN,
     }
 
     public class GOWManager : MonoBehaviour
@@ -58,6 +60,10 @@ namespace BrickWallEntertainment.Managers
 
         private PlayerController kratosController;
 
+        private bossTakeDamage bossController;
+
+        private bool bossStarted;
+
         void Awake()
         {
             if (gowManager == null)
@@ -93,6 +99,7 @@ namespace BrickWallEntertainment.Managers
             currentWave = 0;
             waveStarted = false;
             foundEnemySpawn = false;
+            bossStarted = false;
         }
 
         private IEnumerator GameLoop()
@@ -124,8 +131,6 @@ namespace BrickWallEntertainment.Managers
                 GameObject gate = GameObject.FindGameObjectWithTag("Gate");
                 Gate gateScript = gate.GetComponent<Gate>();
                 gateScript.OpenGate();
-
-                // YIELD BOSS LEVEL
             }
         }
 
@@ -174,6 +179,39 @@ namespace BrickWallEntertainment.Managers
             }
         }
 
+        private IEnumerator BossLoop()
+        {
+            yield return new WaitForSeconds(1f);
+
+            if (!foundEnemySpawn)
+            {
+                GameObject kratosGameObject = GameObject.FindGameObjectWithTag("Kratos");
+                kratosController = kratosGameObject.GetComponent<PlayerController>();
+
+                GameObject bossGameObject = GameObject.FindGameObjectWithTag("Boss");
+                bossController = bossGameObject.GetComponent<bossTakeDamage>();
+                foundEnemySpawn = true;
+            }
+
+            print(kratosController);
+            print(bossController);
+            while (kratosController.currentHealth > 0 && bossController.health > 0)
+            {
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(3.5f);
+
+            if (kratosController.currentHealth <= 0)
+            {
+                EventManager.emitGameState(GameState.GAME_OVER);
+            }
+            else if (bossController.health <= 0)
+            {
+                EventManager.emitGameState(GameState.GAME_WIN);
+            }
+        }
+
         private void OnGameStateChange(GameState gameState)
         {
             this.currentGameState = gameState;
@@ -200,6 +238,18 @@ namespace BrickWallEntertainment.Managers
                 {
                     waveStarted = true;
                     StartCoroutine(GameLoop());
+                }
+            }
+            else if (gameState == GameState.BOSS_LEVEL)
+            {
+                StopAllCoroutines();
+                Time.timeScale = 1;
+                // AudioManager.Instance.Play("");
+                if (!bossStarted)
+                {
+                    bossStarted = true;
+                    foundEnemySpawn = false;
+                    StartCoroutine(BossLoop());
                 }
             }
         }

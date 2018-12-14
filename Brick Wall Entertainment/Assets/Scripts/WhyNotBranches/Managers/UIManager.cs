@@ -40,6 +40,20 @@ namespace BrickWallEntertainment.Managers
             EventManager.emitGameState(GameState.LEVEL_1);
         }
 
+        public void RestartGame()
+        {
+            string sceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(sceneName);
+            if (sceneName.Equals("Normal Level"))
+            {
+                EventManager.emitGameState(GameState.LEVEL_1);
+            }
+            else if (sceneName.Equals("Boss Level"))
+            {
+                EventManager.emitGameState(GameState.BOSS_LEVEL);
+            }
+        }
+
         public void ResumeGame()
         {
             EventManager.emitGameState(this.previousGameState);

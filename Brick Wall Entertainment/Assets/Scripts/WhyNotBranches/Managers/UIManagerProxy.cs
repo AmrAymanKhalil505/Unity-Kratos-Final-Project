@@ -10,6 +10,8 @@ public class UIManagerProxy : MonoBehaviour
 
     public GameObject pauseMenuCanvas;
 
+    public GameObject winMenuCanvas;
+
     void Update()
     {
         if (GOWManager.Instance.currentGameState == GameState.GAME_OVER)
@@ -17,8 +19,14 @@ public class UIManagerProxy : MonoBehaviour
             deathMenuCanvas.SetActive(true);
             return;
         }
+        if (GOWManager.Instance.currentGameState == GameState.GAME_WIN)
+        {
+            winMenuCanvas.SetActive(true);
+            return;
+        }
         if (GOWManager.Instance.currentGameState != GameState.START_MENU
-            && GOWManager.Instance.currentGameState != GameState.GAME_OVER && Input.GetKeyDown(KeyCode.Escape))
+            && GOWManager.Instance.currentGameState != GameState.GAME_OVER
+                && GOWManager.Instance.currentGameState != GameState.GAME_WIN && Input.GetKeyDown(KeyCode.Escape))
         {
             if (GOWManager.Instance.currentGameState != GameState.PAUSE_MENU)
             {
@@ -37,7 +45,8 @@ public class UIManagerProxy : MonoBehaviour
     public void RestartGame()
     {
         EventManager.emitGameState(GameState.GAME_RESTART);
-        UIManager.Instance.StartGame();
+        // UIManager.Instance.StartGame();
+        UIManager.Instance.RestartGame();
     }
 
 
