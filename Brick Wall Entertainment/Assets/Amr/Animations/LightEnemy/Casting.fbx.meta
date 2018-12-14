@@ -189,7 +189,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.08460237
+      - time: 0.11807518
         functionName: playSound
         data: LightEnemyCasting
         objectReferenceParameter: {instanceID: 0}
