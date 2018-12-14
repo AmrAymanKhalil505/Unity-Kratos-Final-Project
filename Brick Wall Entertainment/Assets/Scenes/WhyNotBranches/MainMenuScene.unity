@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -296,6 +296,66 @@ MonoBehaviour:
     pitch: 1
   - soundName: HealthChestSound
     clip: {fileID: 8300000, guid: 242b776d986fcf54b9cdae6fe83a8c86, type: 3}
+    mixerGroup: {fileID: 0}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: Kratos_footstep
+    clip: {fileID: 8300000, guid: 82ad38e280c5b524d9025b689d089acc, type: 3}
+    mixerGroup: {fileID: 0}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: Kratos_hurt
+    clip: {fileID: 8300000, guid: 02d363e5fb8fc1f4291bb107ff872acf, type: 3}
+    mixerGroup: {fileID: 0}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: Kratos_Die
+    clip: {fileID: 8300000, guid: 09a64b120c3892043924b11c58cd6db8, type: 3}
+    mixerGroup: {fileID: 0}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: Kratos_Rage
+    clip: {fileID: 8300000, guid: a865e84884545b345af4ec8a87850c4d, type: 3}
+    mixerGroup: {fileID: 0}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: MainMenuTheme
+    clip: {fileID: 8300000, guid: ffeeefb5e12864b4c8d6f470ecb363e8, type: 3}
+    mixerGroup: {fileID: 0}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: BossBattleTheme
+    clip: {fileID: 8300000, guid: 657703d839777984889a4864b35d1169, type: 3}
+    mixerGroup: {fileID: 0}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: Enemy_hurt
+    clip: {fileID: 8300000, guid: 14fba569e3520d540be90af90ff4431d, type: 3}
+    mixerGroup: {fileID: 0}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: Enemy_Die
+    clip: {fileID: 8300000, guid: 1606892338852de4a82a0084bfbf36a7, type: 3}
+    mixerGroup: {fileID: 0}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: Enemy_Speech
+    clip: {fileID: 8300000, guid: fc187be56dc74f5448779902f182f9cd, type: 3}
+    mixerGroup: {fileID: 0}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: Enemy_footstep
+    clip: {fileID: 8300000, guid: 6bdc7fedc69d7a34d96b6c9bb93e69ef, type: 3}
     mixerGroup: {fileID: 0}
     loop: 0
     volume: 0.3

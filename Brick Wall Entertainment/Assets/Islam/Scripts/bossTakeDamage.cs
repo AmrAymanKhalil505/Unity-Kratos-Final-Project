@@ -16,14 +16,17 @@ public class bossTakeDamage : MonoBehaviour {
     public float health;
     public float maxHealth;
 
+    private PlayerController Kratos;
+
 	// Use this for initialization
 	void Start () {
         anim = gameObject.GetComponent<Animator>();
         leftArmHealth = 3;
         rightArmHealth = 3;
         legsHealth = 3;
-        maxHealth = 100;
+        maxHealth = 200;
         health = maxHealth;
+        Kratos = GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>();
 	}
 	
 	// Update is called once per frame
@@ -48,6 +51,9 @@ public class bossTakeDamage : MonoBehaviour {
         if (anim.GetBool("Roared"))
         {
             rightArmHealth--;
+            if(!Kratos.RageMode){
+                Kratos.currentRage += 3;
+            }
             if (rightArmHealth == 0)
             {
                 anim.SetBool("RightArmInjured", true);
@@ -67,6 +73,9 @@ public class bossTakeDamage : MonoBehaviour {
         if (anim.GetBool("Roared"))
         {
             leftArmHealth--;
+            if(!Kratos.RageMode){
+                Kratos.currentRage += 3;
+            }
             if (leftArmHealth == 0)
             {
                 anim.SetBool("LeftArmInjured", true);
@@ -86,6 +95,9 @@ public class bossTakeDamage : MonoBehaviour {
         if (anim.GetBool("Roared"))
         {
             legsHealth--;
+            if(!Kratos.RageMode){
+                Kratos.currentRage += 3;
+            }
             if (legsHealth == 0)
             {
                 anim.SetBool("LegsInjured", true);
@@ -104,6 +116,9 @@ public class bossTakeDamage : MonoBehaviour {
         if (anim.GetBool("Roared"))
         {
             health -= .05f * maxHealth;
+            if(!Kratos.RageMode){
+                Kratos.currentRage += 3;
+            }
         }
     }
 }
