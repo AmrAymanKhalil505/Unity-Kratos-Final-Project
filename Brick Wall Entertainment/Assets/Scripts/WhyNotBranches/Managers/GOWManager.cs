@@ -181,7 +181,7 @@ namespace BrickWallEntertainment.Managers
 
         private IEnumerator BossLoop()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
 
             if (!foundEnemySpawn)
             {
@@ -198,10 +198,11 @@ namespace BrickWallEntertainment.Managers
                 yield return null;
             }
 
-            yield return new WaitForSeconds(3.5f);
+            yield return new WaitForSeconds(3.25f);
 
             if (kratosController.currentHealth <= 0)
             {
+                print("DIED");
                 EventManager.emitGameState(GameState.GAME_OVER);
             }
             else if (bossController.health <= 0)
@@ -230,11 +231,13 @@ namespace BrickWallEntertainment.Managers
             }
             else if (gameState == GameState.GAME_RESTART)
             {
+                print("Restarting");
                 StopAllCoroutines();
                 spawnGroup = 0;
                 currentWave = 0;
                 waveStarted = false;
                 foundEnemySpawn = false;
+                bossStarted = false;
             }
             else if (gameState == GameState.LEVEL_1)
             {
@@ -260,6 +263,7 @@ namespace BrickWallEntertainment.Managers
                 AudioManager.Instance.Play("BossBattleTheme");
                 if (!bossStarted)
                 {
+                    print("BOSS STARTED");
                     bossStarted = true;
                     foundEnemySpawn = false;
                     StartCoroutine(BossLoop());
