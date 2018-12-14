@@ -115,9 +115,12 @@ public class bossTakeDamage : MonoBehaviour {
     {
         if (anim.GetBool("Roared"))
         {
-            health -= .05f * maxHealth;
             if(!Kratos.RageMode){
+                health -= .05f * maxHealth;
                 Kratos.currentRage += 3;
+            }
+            else{
+                health -= .1f * maxHealth;
             }
         }
     }

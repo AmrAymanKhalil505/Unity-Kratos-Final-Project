@@ -420,6 +420,11 @@ Prefab:
       propertyPath: dstFromTarget
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114793920239253926, guid: 8a706d5c49494db4a8b9104ad059589c,
+        type: 2}
+      propertyPath: pitchMinMax.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a706d5c49494db4a8b9104ad059589c, type: 2}
   m_IsPrefabAsset: 0

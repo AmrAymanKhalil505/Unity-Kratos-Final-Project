@@ -157,6 +157,7 @@ public class LightEnemyBehaviour : MonoBehaviour {
 	public void damage(int x){
 		if(Anim.GetInteger(HP) - x <= 0){
 			Anim.SetTrigger("Death");
+			Anim.SetInteger(HP,0);
 			if(!tookXP){
 				GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().currentXP += 50;
 				tookXP = true;
