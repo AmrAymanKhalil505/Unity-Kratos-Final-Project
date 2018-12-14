@@ -4182,6 +4182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathMenuCanvas: {fileID: 222620224}
   pauseMenuCanvas: {fileID: 1358220243}
+  winMenuCanvas: {fileID: 0}
 --- !u!4 &470342360
 Transform:
   m_ObjectHideFlags: 0
@@ -7367,7 +7368,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4592796523787106, guid: 33c99977d478d7f42859d94f09932b45, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 189.36
+      value: 222.39
       objectReference: {fileID: 0}
     - target: {fileID: 4592796523787106, guid: 33c99977d478d7f42859d94f09932b45, type: 2}
       propertyPath: m_LocalPosition.y
@@ -7375,7 +7376,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4592796523787106, guid: 33c99977d478d7f42859d94f09932b45, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 143.05
+      value: 141
       objectReference: {fileID: 0}
     - target: {fileID: 4592796523787106, guid: 33c99977d478d7f42859d94f09932b45, type: 2}
       propertyPath: m_LocalRotation.x
@@ -16697,6 +16698,10 @@ Prefab:
         type: 2}
       propertyPath: m_MatchWidthOrHeight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303998020700578, guid: 00589054fb3caf04cbe3c81bbc04c7a3, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00589054fb3caf04cbe3c81bbc04c7a3, type: 2}
