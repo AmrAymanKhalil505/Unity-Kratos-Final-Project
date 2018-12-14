@@ -927,61 +927,71 @@ MonoBehaviour:
     pitch: 1
   - soundName: Kratos_footstep
     clip: {fileID: 8300000, guid: 82ad38e280c5b524d9025b689d089acc, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
     loop: 0
     volume: 0.3
     pitch: 1
   - soundName: Kratos_hurt
     clip: {fileID: 8300000, guid: 02d363e5fb8fc1f4291bb107ff872acf, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
     loop: 0
     volume: 0.3
     pitch: 1
   - soundName: Kratos_Die
     clip: {fileID: 8300000, guid: 09a64b120c3892043924b11c58cd6db8, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
     loop: 0
     volume: 0.3
     pitch: 1
   - soundName: Kratos_Rage
     clip: {fileID: 8300000, guid: a865e84884545b345af4ec8a87850c4d, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
     loop: 0
     volume: 0.3
     pitch: 1
   - soundName: MainMenuTheme
     clip: {fileID: 8300000, guid: ffeeefb5e12864b4c8d6f470ecb363e8, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243887529464918840, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
     loop: 1
     volume: 0.3
     pitch: 1
   - soundName: BossBattleTheme
     clip: {fileID: 8300000, guid: 657703d839777984889a4864b35d1169, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243887529464918840, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
     loop: 1
     volume: 0.3
     pitch: 1
   - soundName: Enemy_hurt
     clip: {fileID: 8300000, guid: 14fba569e3520d540be90af90ff4431d, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
     loop: 0
     volume: 0.3
     pitch: 1
   - soundName: Enemy_Die
     clip: {fileID: 8300000, guid: 1606892338852de4a82a0084bfbf36a7, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
     loop: 0
     volume: 0.3
     pitch: 1
   - soundName: Enemy_Speech
     clip: {fileID: 8300000, guid: fc187be56dc74f5448779902f182f9cd, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243431970985976144, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
     loop: 0
     volume: 0.3
     pitch: 1
   - soundName: Enemy_footstep
     clip: {fileID: 8300000, guid: 6bdc7fedc69d7a34d96b6c9bb93e69ef, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
     loop: 0
     volume: 0.3
     pitch: 1
@@ -990,6 +1000,48 @@ MonoBehaviour:
     mixerGroup: {fileID: 243887529464918840, guid: fdd36aefba267dd40b8bd60d0ff77468,
       type: 2}
     loop: 1
+    volume: 0.3
+    pitch: 1
+  - soundName: Boss_Stunned
+    clip: {fileID: 8300000, guid: 24a655db9eea97e4cb9284d58dd64eb4, type: 3}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: Boss_Rock
+    clip: {fileID: 8300000, guid: 9d2fc53803ca4994c8936b5a5b7ed06f, type: 3}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: Boss_Roar
+    clip: {fileID: 8300000, guid: c8b75b52ec8593d46aed6c5d74bab207, type: 3}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: Boss_Magic
+    clip: {fileID: 8300000, guid: 371339cbf29d69942a56a75be4f1db89, type: 3}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: Boss_horns
+    clip: {fileID: 8300000, guid: c41da8387b50b9e45be7f515e829d577, type: 3}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
+    loop: 0
+    volume: 0.3
+    pitch: 1
+  - soundName: Boss_axeAttack
+    clip: {fileID: 8300000, guid: f607d6e7bd84b4d4da384525c3ff4a18, type: 3}
+    mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
+      type: 2}
+    loop: 0
     volume: 0.3
     pitch: 1
 --- !u!114 &535113050

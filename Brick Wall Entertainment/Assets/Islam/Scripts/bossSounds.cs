@@ -2,47 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using BrickWallEntertainment.Managers;
+
 public class bossSounds : MonoBehaviour {
-    public AudioClip roarClip;
-    public AudioClip axeAttackClip;
-    public AudioClip rockClip;
-    public AudioClip magicClip;
-    public AudioClip hornsClip;
-    public AudioClip stunnedClip;
-    public AudioClip dyingClip;
+    // public AudioClip roarClip;
+    // public AudioClip axeAttackClip;
+    // public AudioClip rockClip;
+    // public AudioClip magicClip;
+    // public AudioClip hornsClip;
+    // public AudioClip stunnedClip;
+    // public AudioClip dyingClip;
 
     public void roar()
     {
-        gameObject.GetComponent<AudioSource>().PlayOneShot(roarClip);
+        AudioManager.Instance.Play("Boss_Roar");
     }
 
     public void axeAttackSound()
     {
-        gameObject.GetComponent<AudioSource>().PlayOneShot(axeAttackClip);
+        AudioManager.Instance.Play("Boss_axeAttack");
     }
 
     public void rockSound()
     {
-        gameObject.GetComponent<AudioSource>().PlayOneShot(rockClip);
+        AudioManager.Instance.Play("Boss_Rock");
     }
 
     public void magicSound()
     {
-        gameObject.GetComponent<AudioSource>().PlayOneShot(magicClip);
+        AudioManager.Instance.Play("Boss_Magic");
     }
 
     public void hornsSound()
     {
-        gameObject.GetComponent<AudioSource>().PlayOneShot(hornsClip);
+        AudioManager.Instance.Play("Boss_Roar");
     }
 
     public void stunnedSound()
     {
-        gameObject.GetComponent<AudioSource>().PlayOneShot(stunnedClip);
+        AudioManager.Instance.Play("Boss_horns");
     }
 
     public void dyingSound()
     {
-        gameObject.GetComponent<AudioSource>().PlayOneShot(dyingClip);
+        AudioManager.Instance.Play("BossDying");
     }
 }
