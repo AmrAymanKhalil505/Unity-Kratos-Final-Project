@@ -59,4 +59,9 @@ public class UIManagerProxy : MonoBehaviour
     {
         UIManager.Instance.QuitGame();
     }
+
+    public void QuitToMainMenu()
+    {
+        UIManager.Instance.QuitToMainMenu();
+    }
 }

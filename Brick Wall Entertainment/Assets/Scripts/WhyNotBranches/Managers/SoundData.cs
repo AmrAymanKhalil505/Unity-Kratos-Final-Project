@@ -36,9 +36,12 @@ namespace BrickWallEntertainment
 
         public void Play()
         {
-            this.source.Play();
-        }
+            if (!this.source.isPlaying)
+            {
+                this.source.Play();
 
+            }
+        }
         public void Pause()
         {
             if (this.source.isPlaying)
