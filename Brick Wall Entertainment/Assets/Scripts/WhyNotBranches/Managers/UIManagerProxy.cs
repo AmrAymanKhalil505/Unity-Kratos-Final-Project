@@ -42,6 +42,11 @@ public class UIManagerProxy : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+        UIManager.Instance.StartGame();
+    }
+
     public void RestartGame()
     {
         EventManager.emitGameState(GameState.GAME_RESTART);
@@ -63,5 +68,20 @@ public class UIManagerProxy : MonoBehaviour
     public void QuitToMainMenu()
     {
         UIManager.Instance.QuitToMainMenu();
+    }
+
+    public void MusicVolumeChange(float volume)
+    {
+        UIManager.Instance.MusicVolumeChange(volume);
+    }
+
+    public void SpeechVolumeChange(float volume)
+    {
+        UIManager.Instance.SpeechVolumeChange(volume);
+    }
+
+    public void EffectsVolumeChange(float volume)
+    {
+        UIManager.Instance.EffectsVolumeChange(volume);
     }
 }

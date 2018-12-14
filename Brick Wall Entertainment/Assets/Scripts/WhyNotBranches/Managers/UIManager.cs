@@ -65,6 +65,7 @@ namespace BrickWallEntertainment.Managers
 
         public void QuitToMainMenu()
         {
+            Time.timeScale = 1;
             SceneManager.LoadScene("Scenes/WhyNotBranches/MainMenuScene");
             EventManager.emitGameState(GameState.START_MENU);
         }

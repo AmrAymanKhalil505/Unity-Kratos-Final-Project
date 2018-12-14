@@ -208,13 +208,16 @@ namespace BrickWallEntertainment.Managers
             {
                 EventManager.emitGameState(GameState.GAME_WIN);
             }
+            bossStarted = false;
         }
 
         private void OnGameStateChange(GameState gameState)
         {
             this.currentGameState = gameState;
+            print(Time.timeScale);
             if (gameState == GameState.START_MENU)
             {
+                StopAllCoroutines();
                 AudioManager.Instance.StopAll();
                 AudioManager.Instance.Play("MainMenuTheme");
             }
