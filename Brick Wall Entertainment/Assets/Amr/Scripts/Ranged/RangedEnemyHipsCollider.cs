@@ -17,18 +17,18 @@ public class RangedEnemyHipsCollider : MonoBehaviour {
 		if(TagAxeKratos == other.gameObject.tag){
 			if(GameObject.FindGameObjectWithTag("Kratos").GetComponent<Animator>().GetBool("LightAttack")){
 				if(GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().RageMode){
-					LEB.damage(2*10);
+					LEB.damage(2*(int)GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().lightAttackDamage);
 				}
 				else{
-					LEB.damage(10);
+					LEB.damage((int)GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().lightAttackDamage);
 				}
 			}
 			else{
 				if(GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().RageMode){
-					LEB.damage(2*30);
+					LEB.damage(2*(int)GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().heavyAttackDamage);
 				}
 				else{
-					LEB.damage(30);
+					LEB.damage((int)GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().heavyAttackDamage);
 				}
 			}
 			if(!GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().RageMode){

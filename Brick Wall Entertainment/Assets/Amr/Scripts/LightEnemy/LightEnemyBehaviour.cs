@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using BrickWallEntertainment.Managers;
 public class LightEnemyBehaviour : MonoBehaviour {
 	[Header ("Animation related")]
 	public Animator Anim;
@@ -178,13 +179,13 @@ public class LightEnemyBehaviour : MonoBehaviour {
 		string soundNameDeath = "LightEnemyDeath";
 		string soundNameStep = "LightEnemyStep";
 		if(soundNameCast  == soundName ){
-			source.PlayOneShot(AudioClipCast ,AudioVolume);
+			AudioManager.Instance.Play("Enemy_Speech");
 		}else if (soundNameImpact  == soundName ){
-			source.PlayOneShot(AudioClipImpact ,AudioVolume);
+			AudioManager.Instance.Play("Enemy_hurt");
 		}else if (soundNameDeath  == soundName ){
-			source.PlayOneShot(AudioClipDeath ,AudioVolume);
-		}else if(soundNameStep== soundNameStep){
-			source.PlayOneShot(AudioClipStep,AudioVolume);
+			AudioManager.Instance.Play("Enemy_Die");
+		}else if(soundNameStep == soundName){
+			AudioManager.Instance.Play("Enemy_footstep");
 		}	
 	}
 	public void activateWeaponCollider(int colliderEnabled){
