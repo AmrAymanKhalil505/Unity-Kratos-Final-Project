@@ -60,6 +60,15 @@ namespace BrickWallEntertainment.Managers
             }
         }
 
+        public void UnPause(string soundName)
+        {
+            SoundData sound = this.findSoundByName(soundName);
+            if (sound != null)
+            {
+                sound.UnPause();
+            }
+        }
+
         public void PauseAll()
         {
             foreach (SoundData sound in this.sounds)
@@ -73,6 +82,14 @@ namespace BrickWallEntertainment.Managers
             foreach (SoundData sound in this.sounds)
             {
                 sound.Stop();
+            }
+        }
+
+        public void UnPauseAll()
+        {
+            foreach (SoundData sound in this.sounds)
+            {
+                sound.UnPause();
             }
         }
 

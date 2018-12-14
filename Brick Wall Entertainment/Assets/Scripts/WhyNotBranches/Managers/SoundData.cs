@@ -54,5 +54,10 @@ namespace BrickWallEntertainment
                 this.source.Stop();
             }
         }
+
+        public void UnPause()
+        {
+            this.source.UnPause();
+        }
     }
 }
