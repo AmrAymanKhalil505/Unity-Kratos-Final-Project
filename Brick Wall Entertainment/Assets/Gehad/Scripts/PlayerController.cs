@@ -254,6 +254,10 @@ public class PlayerController : MonoBehaviour {
 			else{
 				currentSpeed1 = currentSpeed;
 			}
+
+			if(gettinHit){
+				animator.SetBool("Rolling",false);
+			}
 			// if(animator.GetCurrentAnimatorStateInfo(0).IsName("Block")){
 			// 	a.putInHand();
 			// }
