@@ -1,42 +1,42 @@
 fileFormatVersion: 2
-guid: 21b65f4fdbebed84d8ab534c1d4b3b4b
+guid: 632cc447bb722e44082707e5453a37f5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Head
-    100002: HeadTop_End
-    100004: Hips
-    100006: LeftArm
-    100008: LeftFoot
-    100010: LeftForeArm
-    100012: LeftHand
-    100014: LeftHandIndex1
-    100016: LeftHandIndex2
-    100018: LeftHandIndex3
-    100020: LeftHandIndex4
-    100022: LeftHandMiddle1
-    100024: LeftHandMiddle2
-    100026: LeftHandMiddle3
-    100028: LeftHandMiddle4
-    100030: LeftHandPinky1
-    100032: LeftHandPinky2
-    100034: LeftHandPinky3
-    100036: LeftHandPinky4
-    100038: LeftHandRing1
-    100040: LeftHandRing2
-    100042: LeftHandRing3
-    100044: LeftHandRing4
-    100046: LeftHandThumb1
-    100048: LeftHandThumb2
-    100050: LeftHandThumb3
-    100052: LeftHandThumb4
-    100054: LeftLeg
-    100056: LeftShoulder
-    100058: LeftToe_End
-    100060: LeftToeBase
-    100062: LeftUpLeg
-    100064: Neck
-    100066: //RootNode
+    100000: //RootNode
+    100002: Head
+    100004: HeadTop_End
+    100006: Hips
+    100008: LeftArm
+    100010: LeftFoot
+    100012: LeftForeArm
+    100014: LeftHand
+    100016: LeftHandIndex1
+    100018: LeftHandIndex2
+    100020: LeftHandIndex3
+    100022: LeftHandIndex4
+    100024: LeftHandMiddle1
+    100026: LeftHandMiddle2
+    100028: LeftHandMiddle3
+    100030: LeftHandMiddle4
+    100032: LeftHandPinky1
+    100034: LeftHandPinky2
+    100036: LeftHandPinky3
+    100038: LeftHandPinky4
+    100040: LeftHandRing1
+    100042: LeftHandRing2
+    100044: LeftHandRing3
+    100046: LeftHandRing4
+    100048: LeftHandThumb1
+    100050: LeftHandThumb2
+    100052: LeftHandThumb3
+    100054: LeftHandThumb4
+    100056: LeftLeg
+    100058: LeftShoulder
+    100060: LeftToe_End
+    100062: LeftToeBase
+    100064: LeftUpLeg
+    100066: Neck
     100068: RightArm
     100070: RightFoot
     100072: RightForeArm
@@ -66,43 +66,45 @@ ModelImporter:
     100120: RightToe_End
     100122: RightToeBase
     100124: RightUpLeg
-    100126: Spine
-    100128: Spine1
-    100130: Spine2
-    400000: Head
-    400002: HeadTop_End
-    400004: Hips
-    400006: LeftArm
-    400008: LeftFoot
-    400010: LeftForeArm
-    400012: LeftHand
-    400014: LeftHandIndex1
-    400016: LeftHandIndex2
-    400018: LeftHandIndex3
-    400020: LeftHandIndex4
-    400022: LeftHandMiddle1
-    400024: LeftHandMiddle2
-    400026: LeftHandMiddle3
-    400028: LeftHandMiddle4
-    400030: LeftHandPinky1
-    400032: LeftHandPinky2
-    400034: LeftHandPinky3
-    400036: LeftHandPinky4
-    400038: LeftHandRing1
-    400040: LeftHandRing2
-    400042: LeftHandRing3
-    400044: LeftHandRing4
-    400046: LeftHandThumb1
-    400048: LeftHandThumb2
-    400050: LeftHandThumb3
-    400052: LeftHandThumb4
-    400054: LeftLeg
-    400056: LeftShoulder
-    400058: LeftToe_End
-    400060: LeftToeBase
-    400062: LeftUpLeg
-    400064: Neck
-    400066: //RootNode
+    100126: Shield_joint
+    100128: Spine
+    100130: Spine1
+    100132: Spine2
+    100134: Sword_joint
+    400000: //RootNode
+    400002: Head
+    400004: HeadTop_End
+    400006: Hips
+    400008: LeftArm
+    400010: LeftFoot
+    400012: LeftForeArm
+    400014: LeftHand
+    400016: LeftHandIndex1
+    400018: LeftHandIndex2
+    400020: LeftHandIndex3
+    400022: LeftHandIndex4
+    400024: LeftHandMiddle1
+    400026: LeftHandMiddle2
+    400028: LeftHandMiddle3
+    400030: LeftHandMiddle4
+    400032: LeftHandPinky1
+    400034: LeftHandPinky2
+    400036: LeftHandPinky3
+    400038: LeftHandPinky4
+    400040: LeftHandRing1
+    400042: LeftHandRing2
+    400044: LeftHandRing3
+    400046: LeftHandRing4
+    400048: LeftHandThumb1
+    400050: LeftHandThumb2
+    400052: LeftHandThumb3
+    400054: LeftHandThumb4
+    400056: LeftLeg
+    400058: LeftShoulder
+    400060: LeftToe_End
+    400062: LeftToeBase
+    400064: LeftUpLeg
+    400066: Neck
     400068: RightArm
     400070: RightFoot
     400072: RightForeArm
@@ -132,11 +134,14 @@ ModelImporter:
     400120: RightToe_End
     400122: RightToeBase
     400124: RightUpLeg
-    400126: Spine
-    400128: Spine1
-    400130: Spine2
-    7400000: Attack
+    400126: Shield_joint
+    400128: Spine
+    400130: Spine1
+    400132: Spine2
+    400134: Sword_joint
+    7400000: Block
     9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -152,7 +157,8 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: Event UnBlock has a time (1.000000) outside the clip's
+      valid range (0.000000..0.566667). It will never be fired
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -166,10 +172,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Attack
+      name: Block
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 45
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -189,22 +195,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.1285956
-        functionName: activateWeaponCollider
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
-      - time: 0.83756346
-        functionName: activateWeaponCollider
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.9262197
-        functionName: Block
+      - time: 0.94186044
+        functionName: UnBlock
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

@@ -108,7 +108,7 @@ public class RangedBehaviour : MonoBehaviour {
 				bool lookingAtKratos = Mathf.Abs(dot - 1 )<= 0.1f;
 				if(TooNearKratosDistance){
 					
-					if(BackingDownTime<0){
+					if(BackingDownTime<2){
 						if(!lookingAtKratos){
 
 							Vector3 newDir=  Vector3.RotateTowards(transform.forward,  KratosGO.transform.position-transform.position, RotationSpeed * Time.deltaTime,0.0f);
@@ -120,11 +120,13 @@ public class RangedBehaviour : MonoBehaviour {
 						cannotHit();
 					}
 				}else if(NearKratosDistance){
-					if(!lookingAtKratos){
-						Vector3 newDir=  Vector3.RotateTowards(transform.forward,  KratosGO.transform.position-transform.position, RotationSpeed * Time.deltaTime,0.0f);
-						transform.rotation = Quaternion.LookRotation(newDir);
-					}else{
-						canHit();
+					if(BackingDownTime < 2){
+						if(!lookingAtKratos){
+							Vector3 newDir=  Vector3.RotateTowards(transform.forward,  KratosGO.transform.position-transform.position, RotationSpeed * Time.deltaTime,0.0f);
+							transform.rotation = Quaternion.LookRotation(newDir);
+						}else{
+							canHit();
+						}
 					}
 				}else{
 					cannotHit();
@@ -142,6 +144,7 @@ public class RangedBehaviour : MonoBehaviour {
 
 	void canHit(){
 		Anim.SetBool(CanHit, true);
+		print(BackingDownTime);
 	}
 	void cannotHit(){
 		Anim.SetBool(CanHit, false);	
@@ -166,6 +169,7 @@ public class RangedBehaviour : MonoBehaviour {
 	}
 	public void restBackingDown(){
 		BackingDownTime=BackingDownTimerGap;
+		cannotHit();
 	}
 	public void playSound(string soundName){
 		string soundNameCast = "RangedEnemyCast";

@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour {
 			if(Input.GetKeyDown(KeyCode.Space) && inAir && canDoubleJump && !inCombo){
 				animator.SetBool("DoubleJump",true);
 				animator.SetBool("jumping", false);
-				this.GetComponent<Rigidbody>().AddForce(new Vector3(0,200,0),ForceMode.Impulse);
+				this.GetComponent<Rigidbody>().AddForce(new Vector3(0,300,0),ForceMode.Impulse);
 				canDoubleJump = false;
 			}
 

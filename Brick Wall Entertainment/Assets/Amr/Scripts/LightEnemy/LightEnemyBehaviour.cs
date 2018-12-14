@@ -39,6 +39,10 @@ public class LightEnemyBehaviour : MonoBehaviour {
 
 	public float RotationSpeed;
 	public float DistanceToKratosToHit;
+
+	public float BackingDownTime;
+	public float BackingDownTimerGap=2;
+
 	// Use this for initialization
 	void Start () {
 		Anim = GetComponent<Animator>();
@@ -55,39 +59,87 @@ public class LightEnemyBehaviour : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-		//is Kratos near
-		if(!KratosNearB && Vector3.Distance(transform.position , KratosGO.transform.position) < DistanceToNotify){
-			notifyKratosApproch();
-		}
+	// void FixedUpdate () {
+	// 	BackingDownTime -= Time.deltaTime;
+	// 	//is Kratos near
+	// 	if(!KratosNearB && Vector3.Distance(transform.position , KratosGO.transform.position) < DistanceToNotify){
+	// 		notifyKratosApproch();
+	// 	}
 
-		// running towards Kratos 
-		if(KratosNearB){
-			if(Anim.GetCurrentAnimatorClipInfo(Anim.GetLayerIndex("Base Layer"))[0].clip == runningClip){
-					KratosLastPostion = KratosGO.transform.position;
-					NMA.SetDestination(KratosLastPostion);
-			}else{
-				NMA.SetDestination(transform.position);
-			}
-		}	
+	// 	// running towards Kratos 
+	// 	if(KratosNearB){
+	// 		if(Anim.GetCurrentAnimatorClipInfo(Anim.GetLayerIndex("Base Layer"))[0].clip == runningClip){
+	// 				KratosLastPostion = KratosGO.transform.position;
+	// 				NMA.SetDestination(KratosLastPostion);
+	// 		}else{
+	// 			NMA.SetDestination(transform.position);
+	// 		}
+	// 	}	
 		
-		// able to hit Kratos ??
-		bool NearKratosDistance =Vector3.Distance(transform.position , KratosGO.transform.position)<DistanceToKratosToHit;
-		// looking at kratos ??
-		Vector3 dir = (KratosGO.transform.position- transform.position).normalized;
-		float dot = Vector3.Dot(dir, transform.forward);
-		bool lookingAtKratos = Mathf.Abs(dot - 1 )<= 0.1f;
-		if(NearKratosDistance ){
-			canHit();
-			if(!lookingAtKratos){
-				Vector3 newDir=  Vector3.RotateTowards(transform.forward,  KratosGO.transform.position-transform.position, RotationSpeed * Time.deltaTime,0.0f);
-				transform.rotation = Quaternion.LookRotation(newDir);
-			}
-		}else{
-			cannotHit();
-		}
+	// 	// able to hit Kratos ??
+	// 	bool NearKratosDistance =Vector3.Distance(transform.position , KratosGO.transform.position)<DistanceToKratosToHit;
+	// 	// looking at kratos ??
+	// 	Vector3 dir = (KratosGO.transform.position- transform.position).normalized;
+	// 	float dot = Vector3.Dot(dir, transform.forward);
+	// 	bool lookingAtKratos = Mathf.Abs(dot - 1 )<= 0.1f;
+	// 	if(NearKratosDistance){
+	// 		if(BackingDownTime < 0){
 
-	}
+	// 			cannotHit();
+	// 			NMA.isStopped = false;
+	// 			if(!lookingAtKratos){
+	// 				Vector3 newDir=  Vector3.RotateTowards(transform.forward,  KratosGO.transform.position-transform.position, RotationSpeed * Time.deltaTime,0.0f);
+	// 				transform.rotation = Quaternion.LookRotation(newDir);
+	// 			}else{
+	// 				canHit();
+	// 				BackingDownTime = BackingDownTimerGap;
+	// 				NMA.isStopped = true;
+	// 			}
+	// 		}
+	// 	}else{
+	// 		cannotHit();
+	// 		NMA.isStopped = false;
+	// 	}
+
+	// }
+
+	void FixedUpdate () {
+		BackingDownTime -= Time.deltaTime;
+		if(BackingDownTime < 0){
+			UnBlock(); 
+		}
+        //is Kratos near
+        if(!KratosNearB && Vector3.Distance(transform.position , KratosGO.transform.position) < DistanceToNotify){
+            notifyKratosApproch();
+        }
+
+        // running towards Kratos 
+        if(KratosNearB){
+            if(Anim.GetCurrentAnimatorClipInfo(Anim.GetLayerIndex("Base Layer"))[0].clip == runningClip){
+                    KratosLastPostion = KratosGO.transform.position;
+                    NMA.SetDestination(KratosLastPostion);
+            }else{
+                NMA.SetDestination(transform.position);
+            }
+        }    
+        
+        // able to hit Kratos ??
+        bool NearKratosDistance =Vector3.Distance(transform.position , KratosGO.transform.position)<DistanceToKratosToHit;
+        // looking at kratos ??
+        Vector3 dir = (KratosGO.transform.position- transform.position).normalized;
+        float dot = Vector3.Dot(dir, transform.forward);
+        bool lookingAtKratos = Mathf.Abs(dot - 1 )<= 0.1f;
+        if(NearKratosDistance ){
+            canHit();
+            if(!lookingAtKratos){
+                Vector3 newDir=  Vector3.RotateTowards(transform.forward,  KratosGO.transform.position-transform.position, RotationSpeed * Time.deltaTime,0.0f);
+                transform.rotation = Quaternion.LookRotation(newDir);
+            }
+        }else{
+            cannotHit();
+        }
+
+    }
 	
 	public void notifyKratosApproch(){
 		Anim.SetBool(KratosNear , true);
@@ -100,16 +152,19 @@ public class LightEnemyBehaviour : MonoBehaviour {
 		Anim.SetBool(CanHit, false);	
 	}
 	public void damage(int x){
+		if(Anim.GetInteger(HP) - x <= 0){
+			Anim.SetTrigger("Death");
+		}
 		if(!Anim.GetBool(GotHit)){
 			Anim.SetInteger(HP, Anim.GetInteger(HP)-x);
 			hit();
 		}
 	}
 	public void hit(){
-		Anim.SetBool(GotHit, true);
+		Anim.SetTrigger(GotHit);
 	}
 	public void doneGettingHit(){
-		Anim.SetBool(GotHit, false);
+		Anim.ResetTrigger(GotHit);
 	}
 	public void playSound(string soundName){
 		string soundNameCast = "LightEnemyCast";
@@ -128,5 +183,14 @@ public class LightEnemyBehaviour : MonoBehaviour {
 	}
 	public void activateWeaponCollider(int colliderEnabled){
 		enemyWeapon.GetComponent<CapsuleCollider>().enabled = (colliderEnabled==1);
+	}
+
+	public void Block(){
+		Anim.SetBool("Block",true);
+		BackingDownTime = BackingDownTimerGap;
+	}
+
+	public void UnBlock(){
+		Anim.SetBool("Block",false);
 	}
 }
