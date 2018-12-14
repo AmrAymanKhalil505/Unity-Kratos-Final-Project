@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class RangedBehaviour : MonoBehaviour {
 	[Header ("Animation related")]
-	Animator Anim;
+	public Animator Anim;
 	public AnimationClip runningClip;
 
 

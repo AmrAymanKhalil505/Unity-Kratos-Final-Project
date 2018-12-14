@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class LightEnemyBehaviour : MonoBehaviour {
 	[Header ("Animation related")]
-	Animator Anim;
+	public Animator Anim;
 	public AnimationClip runningClip;
 
 	public GameObject enemyWeapon;

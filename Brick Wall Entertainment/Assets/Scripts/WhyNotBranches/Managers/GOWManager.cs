@@ -108,11 +108,11 @@ namespace BrickWallEntertainment.Managers
 
             // if (kratosDead)
             // {
-                // DISPLAY YOU DIED UI.
-                // spawnGroup = 0;
-                // currentWave = 0;
-                // waveStarted = false;
-                // return;
+            // DISPLAY YOU DIED UI.
+            // spawnGroup = 0;
+            // currentWave = 0;
+            // waveStarted = false;
+            // return;
             // } else
 
             if (currentWave < numberOfWaves)
@@ -122,7 +122,7 @@ namespace BrickWallEntertainment.Managers
             else
             {
                 // OPEN GATE
-                
+
                 // YIELD BOSS LEVEL
             }
         }
@@ -153,8 +153,11 @@ namespace BrickWallEntertainment.Managers
         {
             foreach (GameObject enemy in wave)
             {
-                Killable killableScrpt = enemy.GetComponent<Killable>();
-                if (!killableScrpt.isDead) return false;
+                LightEnemyBehaviour lebs = enemy.GetComponent<LightEnemyBehaviour>();
+                if (lebs != null && lebs.Anim.GetInteger("HP") > 0) return false;
+
+                RangedBehaviour rb = enemy.GetComponent<RangedBehaviour>();
+                if (rb != null && rb.Anim.GetInteger("HP") > 0) return false;
             }
             return true;
         }
@@ -162,11 +165,15 @@ namespace BrickWallEntertainment.Managers
         private void FindEnemySpawnPoints()
         {
             GameObject[] gameObjectSpawnGroups = GameObject.FindGameObjectsWithTag("EnemySpawn");
+            print(gameObjectSpawnGroups.Length);
+            this.SpawnGroups = new Transform[gameObjectSpawnGroups.Length];
             for (int i = 0; i < gameObjectSpawnGroups.Length; i++)
             {
+                print(gameObjectSpawnGroups[i].transform);
                 SpawnGroups[i] = gameObjectSpawnGroups[i].transform;
             }
         }
+
         private void OnGameStateChange(GameState gameState)
         {
             this.currentGameState = gameState;

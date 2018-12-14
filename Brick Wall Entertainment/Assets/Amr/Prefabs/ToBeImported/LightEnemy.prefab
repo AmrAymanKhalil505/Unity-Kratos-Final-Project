@@ -1112,7 +1112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1975458845308762
 GameObject:
   m_ObjectHideFlags: 1
@@ -2527,6 +2527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034dddf68fea8fd4c8dda89b9de69df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Anim: {fileID: 0}
   runningClip: {fileID: 7400000, guid: 8c68e56211dc2d34a9a52da6a9b3312b, type: 3}
   enemyWeapon: {fileID: 1504482800424330}
   AudioClipCast: {fileID: 0}
