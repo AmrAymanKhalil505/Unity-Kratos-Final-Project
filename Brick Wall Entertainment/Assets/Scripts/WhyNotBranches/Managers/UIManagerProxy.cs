@@ -16,11 +16,15 @@ public class UIManagerProxy : MonoBehaviour
     {
         if (GOWManager.Instance.currentGameState == GameState.GAME_OVER)
         {
+            Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
             deathMenuCanvas.SetActive(true);
             return;
         }
         if (GOWManager.Instance.currentGameState == GameState.GAME_WIN)
         {
+            Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
             winMenuCanvas.SetActive(true);
             return;
         }
@@ -30,12 +34,16 @@ public class UIManagerProxy : MonoBehaviour
         {
             if (GOWManager.Instance.currentGameState != GameState.PAUSE_MENU)
             {
+                Cursor.lockState = CursorLockMode.None;
+			    Cursor.visible = true;
                 UIManager.Instance.previousGameState = GOWManager.Instance.currentGameState;
                 EventManager.emitGameState(GameState.PAUSE_MENU);
                 pauseMenuCanvas.SetActive(true);
             }
             else
             {
+                Cursor.lockState = CursorLockMode.Locked;
+			    Cursor.visible = false;
                 pauseMenuCanvas.SetActive(false);
                 EventManager.emitGameState(UIManager.Instance.previousGameState);
             }
