@@ -220,6 +220,11 @@ namespace BrickWallEntertainment.Managers
             {
                 StopAllCoroutines();
                 AudioManager.Instance.StopAll();
+                spawnGroup = 0;
+                currentWave = 0;
+                waveStarted = false;
+                foundEnemySpawn = false;
+                bossStarted = false;
                 AudioManager.Instance.Play("MainMenuTheme");
             }
             else if (gameState == GameState.PAUSE_MENU
