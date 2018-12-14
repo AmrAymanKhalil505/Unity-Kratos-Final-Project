@@ -16,13 +16,13 @@ public class CreditsScript : MonoBehaviour {
         rectTrans.Translate(0, 1f, 0);
 
        // print("X= " +rectTrans.position.x);
-        //print("Y= " + rectTrans.position.y);
+       // print("Y= " + rectTrans.position.y);
        // print("Z= " + rectTrans.position.z);
 
         // if (rectTrans.position.y >= 2300f)
         // {
         //    print("Y inside= " + rectTrans.position.y);
-         //   rectTrans.localPosition(277f, -1600f, 0f);
+        //    rectTrans.localPosition(277f, -1600f, 0f);
         // }
 
     }
