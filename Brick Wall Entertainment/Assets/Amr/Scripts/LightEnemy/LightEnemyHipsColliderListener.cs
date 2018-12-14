@@ -15,7 +15,15 @@ public class LightEnemyHipsColliderListener : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
     {	
 		if(TagAxeKratos == other.gameObject.tag){
-			LEB.damage(Damage);
+			if(GameObject.FindGameObjectWithTag("Kratos").GetComponent<Animator>().GetBool("LightAttack")){
+				LEB.damage(10);
+			}
+			else{
+				LEB.damage(30);
+			}
+			if(!GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().RageMode){
+				GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().currentRage += 5;
+			}
 		}
     }
 }

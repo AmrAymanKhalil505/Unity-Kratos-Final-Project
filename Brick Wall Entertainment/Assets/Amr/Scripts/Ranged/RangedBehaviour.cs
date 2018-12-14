@@ -152,6 +152,9 @@ public class RangedBehaviour : MonoBehaviour {
 	public void damage(int x){
 		if(!Anim.GetBool(GotHit)){
 			Anim.SetInteger(HP, Anim.GetInteger(HP)-x);
+			if(Anim.GetInteger(HP)-x <= 0){
+				GameObject.FindGameObjectWithTag("Kratos").GetComponent<PlayerController>().currentXP += 50;
+			}
 			hit();
 		}
 	}

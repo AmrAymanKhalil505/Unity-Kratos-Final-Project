@@ -4,9 +4,9 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 
-	public int maxHealth = 100;
+	public float maxHealth = 100;
 
-	public int currentHealth = 100;
+	public float currentHealth = 100;
 
 	private bool immune = false;
 
@@ -16,15 +16,17 @@ public class PlayerController : MonoBehaviour {
 
 	public int level = 1;
 
+	public int SkillPoints = 0;
+
 	public int RageMeter = 100;
 
 	public int currentRage = 0;
 
 	public bool RageMode = false;
 
-	public int lightAttackDamage = 10;
+	public float lightAttackDamage = 10;
 
-	public int heavyAttackDamage = 30;
+	public float heavyAttackDamage = 30;
 
 	float turnSmoothTime = 0.2f;
 	float turnSmoothVelocity;
@@ -74,6 +76,12 @@ public class PlayerController : MonoBehaviour {
 			currentHealth = 0;
 		}
 		if(!Dead){
+
+			if(currentXP >= requiredXP){
+				currentXP = 0;
+				requiredXP *= 2;
+				SkillPoints += 1;
+			}
 
 			if(Input.GetKeyDown(KeyCode.R) && currentRage >= RageMeter){
 				RageMode = true;
@@ -399,18 +407,6 @@ public class PlayerController : MonoBehaviour {
 				inAir = false;
 			}
 		}
-		if(collision.gameObject.tag == "LightEnemy"){
-			if(!immune){
-				currentHealth -= 10;
-				if(currentHealth == 0){
-					animator.SetTrigger("Dead");
-					Dead = true;
-				}
-				else{
-					animator.SetTrigger("hit");
-				}
-			}
-		}
         if(collision.gameObject.tag == "lava" || collision.gameObject.tag == "PitSpikes")
         {
             animator.SetTrigger("Dead");
@@ -450,7 +446,7 @@ public class PlayerController : MonoBehaviour {
 		if(collider.tag == "BossAxe" && GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetBool("AxeAttack")){
 			if(!immune && !Dead){
 				currentHealth -= 10;
-				if(currentHealth == 0){
+				if(currentHealth <= 0){
 					animator.SetTrigger("Dead");
 					Dead = true;
 				}
@@ -465,7 +461,7 @@ public class PlayerController : MonoBehaviour {
 		if(collider.tag == "BossLeftHand" && GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetBool("SwipeAttack")){
 			if(!immune && !Dead){
 				currentHealth -= 10;
-				if(currentHealth == 0){
+				if(currentHealth <= 0){
 					animator.SetTrigger("Dead");
 					Dead = true;
 				}
@@ -480,7 +476,7 @@ public class PlayerController : MonoBehaviour {
 		if(collider.tag == "BossLeg" && GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetBool("KickAttack")){
 			if(!immune && !Dead){
 				currentHealth -= 10;
-				if(currentHealth == 0){
+				if(currentHealth <= 0){
 					animator.SetTrigger("Dead");
 					Dead = true;
 				}
@@ -495,7 +491,7 @@ public class PlayerController : MonoBehaviour {
 		if(collider.tag == "Ring"){
 			if(!immune && !Dead){
 				currentHealth -= 10;
-				if(currentHealth == 0){
+				if(currentHealth <= 0){
 					animator.SetTrigger("Dead");
 					Dead = true;
 				}
@@ -510,7 +506,7 @@ public class PlayerController : MonoBehaviour {
 		if(collider.tag == "MagicAttackBall"){
 			if(!immune && !Dead){
 				currentHealth -= 10;
-				if(currentHealth == 0){
+				if(currentHealth <= 0){
 					animator.SetTrigger("Dead");
 					Dead = true;
 				}
@@ -525,7 +521,7 @@ public class PlayerController : MonoBehaviour {
 		if(collider.tag == "AttackWave"){
 			if(!immune && !Dead){
 				currentHealth -= 10;
-				if(currentHealth == 0){
+				if(currentHealth <= 0){
 					animator.SetTrigger("Dead");
 					Dead = true;
 				}
@@ -540,7 +536,7 @@ public class PlayerController : MonoBehaviour {
 		if(collider.tag == "Rock" || collider.tag == "Spikes"){
 			if(!immune && !Dead){
 				currentHealth -= 10;
-				if(currentHealth == 0){
+				if(currentHealth <= 0){
 					animator.SetTrigger("Dead");
 					Dead = true;
 				}
@@ -549,6 +545,26 @@ public class PlayerController : MonoBehaviour {
 					animator.SetInteger("HeavyAttack", 0);
 					noOfClicks = 0;
 					canClick = true;
+				}
+			}
+		}
+		if(collider.tag == "LightEnemyWeapon" || collider.tag == "HeavyEnemyWeapon" || collider.tag == "RangedEnemyWeapon"){
+			if(!immune && !Dead){
+				currentHealth -= 10;
+				if(currentHealth <= 0){
+					animator.SetTrigger("Dead");
+					Dead = true;
+				}
+				else{
+					animator.SetTrigger("hit");
+					animator.SetInteger("HeavyAttack", 0);
+					noOfClicks = 0;
+					canClick = true;
+				}
+				if(collider.tag != "RangedEnemyWeapon"){
+					collider.GetComponent<CapsuleCollider>().enabled = false;
+				}else{
+					collider.GetComponent<BoxCollider>().enabled = false;
 				}
 			}
 		}
