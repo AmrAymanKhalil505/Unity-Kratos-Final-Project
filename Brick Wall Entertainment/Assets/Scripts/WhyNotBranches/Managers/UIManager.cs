@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 namespace BrickWallEntertainment.Managers
@@ -19,6 +20,8 @@ namespace BrickWallEntertainment.Managers
         [HideInInspector]
         public GameState previousGameState;
 
+        public AudioMixer audioMixer;
+
         void Awake()
         {
             if (uiManager == null)
@@ -26,6 +29,7 @@ namespace BrickWallEntertainment.Managers
             else if (uiManager != this)
                 Destroy(this.gameObject);
             DontDestroyOnLoad(this.gameObject);
+            AudioManager.Instance.Play("BirdAmbient");
         }
 
 
@@ -44,6 +48,21 @@ namespace BrickWallEntertainment.Managers
         public void QuitGame()
         {
             Application.Quit();
+        }
+
+        public void MusicVolumeChange(float volume)
+        {
+            audioMixer.SetFloat("musicVolume", volume);
+        }
+
+        public void SpeechVolumeChange(float volume)
+        {
+            audioMixer.SetFloat("speechVolume", volume);
+        }
+
+        public void EffectsVolumeChange(float volume)
+        {
+            audioMixer.SetFloat("effectsVolume", volume);
         }
     }
 }
