@@ -1000,8 +1000,8 @@ MonoBehaviour:
     mixerGroup: {fileID: 243887529464918840, guid: fdd36aefba267dd40b8bd60d0ff77468,
       type: 2}
     loop: 1
-    volume: 0.3
-    pitch: 1
+    volume: 0.18
+    pitch: 0.8
   - soundName: Boss_Stunned
     clip: {fileID: 8300000, guid: 24a655db9eea97e4cb9284d58dd64eb4, type: 3}
     mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,

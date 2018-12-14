@@ -216,11 +216,11 @@ namespace BrickWallEntertainment.Managers
             if (gameState == GameState.START_MENU)
             {
                 AudioManager.Instance.Play("MainMenuTheme");
-                Time.timeScale = 0;
             }
             else if (gameState == GameState.PAUSE_MENU
                 || gameState == GameState.GAME_OVER || gameState == GameState.GAME_WIN)
             {
+                Time.timeScale = 0;
                 AudioManager.Instance.PauseAll();
                 AudioManager.Instance.UnPause("MainMenuTheme");
             }
@@ -237,6 +237,7 @@ namespace BrickWallEntertainment.Managers
                 Time.timeScale = 1;
                 AudioManager.Instance.UnPauseAll();
                 AudioManager.Instance.Pause("MainMenuTheme");
+                AudioManager.Instance.Play("NormalLevelTheme");
                 AudioManager.Instance.Play("BirdAmbient");
                 if (!waveStarted)
                 {
@@ -248,9 +249,10 @@ namespace BrickWallEntertainment.Managers
             {
                 StopAllCoroutines();
                 Time.timeScale = 1;
+                AudioManager.Instance.Play("NormalLevelTheme");
+                AudioManager.Instance.Play("BirdAmbient");
                 AudioManager.Instance.UnPauseAll();
-                AudioManager.Instance.Pause("MainMenuTheme");
-                // AudioManager.Instance.Play("");
+                AudioManager.Instance.Play("BossLevelTheme");
                 if (!bossStarted)
                 {
                     bossStarted = true;
