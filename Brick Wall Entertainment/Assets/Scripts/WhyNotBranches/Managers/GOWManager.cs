@@ -193,8 +193,6 @@ namespace BrickWallEntertainment.Managers
                 foundEnemySpawn = true;
             }
 
-            print(kratosController);
-            print(bossController);
             while (kratosController.currentHealth > 0 && bossController.health > 0)
             {
                 yield return null;
@@ -215,12 +213,17 @@ namespace BrickWallEntertainment.Managers
         private void OnGameStateChange(GameState gameState)
         {
             this.currentGameState = gameState;
-            if (gameState == GameState.START_MENU || gameState == GameState.PAUSE_MENU)
+            if (gameState == GameState.START_MENU)
             {
-                AudioManager.Instance.PauseAll();
-                // PLAY THEME
-                AudioManager.Instance.Play("");
+                AudioManager.Instance.StopAll();
+                AudioManager.Instance.Play("MainMenuTheme");
+            }
+            else if (gameState == GameState.PAUSE_MENU
+                || gameState == GameState.GAME_OVER || gameState == GameState.GAME_WIN)
+            {
                 Time.timeScale = 0;
+                AudioManager.Instance.PauseAll();
+                AudioManager.Instance.UnPause("MainMenuTheme");
             }
             else if (gameState == GameState.GAME_RESTART)
             {
@@ -233,6 +236,9 @@ namespace BrickWallEntertainment.Managers
             else if (gameState == GameState.LEVEL_1)
             {
                 Time.timeScale = 1;
+                AudioManager.Instance.UnPauseAll();
+                AudioManager.Instance.Pause("MainMenuTheme");
+                AudioManager.Instance.Play("NormalLevelTheme");
                 AudioManager.Instance.Play("BirdAmbient");
                 if (!waveStarted)
                 {
@@ -244,7 +250,11 @@ namespace BrickWallEntertainment.Managers
             {
                 StopAllCoroutines();
                 Time.timeScale = 1;
-                // AudioManager.Instance.Play("");
+                AudioManager.Instance.Stop("NormalLevelTheme");
+                AudioManager.Instance.Stop("BirdAmbient");
+                AudioManager.Instance.UnPauseAll();
+                AudioManager.Instance.Pause("MainMenuTheme");
+                AudioManager.Instance.Play("BossBattleTheme");
                 if (!bossStarted)
                 {
                     bossStarted = true;

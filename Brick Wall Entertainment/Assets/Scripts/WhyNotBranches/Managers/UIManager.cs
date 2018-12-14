@@ -29,7 +29,6 @@ namespace BrickWallEntertainment.Managers
             else if (uiManager != this)
                 Destroy(this.gameObject);
             DontDestroyOnLoad(this.gameObject);
-            AudioManager.Instance.Play("BirdAmbient");
         }
 
 
@@ -62,6 +61,12 @@ namespace BrickWallEntertainment.Managers
         public void QuitGame()
         {
             Application.Quit();
+        }
+
+        public void QuitToMainMenu()
+        {
+            SceneManager.LoadScene("Scenes/WhyNotBranches/MainMenuScene");
+            EventManager.emitGameState(GameState.START_MENU);
         }
 
         public void MusicVolumeChange(float volume)

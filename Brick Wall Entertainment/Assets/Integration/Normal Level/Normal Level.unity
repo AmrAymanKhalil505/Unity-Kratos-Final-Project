@@ -1876,7 +1876,7 @@ Prefab:
     - target: {fileID: 114433309671006872, guid: 8763e6fad1d4fec46ad0e4e4a305df4c,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
+      value: QuitToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 114433309671006872, guid: 8763e6fad1d4fec46ad0e4e4a305df4c,
         type: 2}
@@ -12335,7 +12335,7 @@ Prefab:
     - target: {fileID: 114545998297483588, guid: 54103854327611943b70e29a559bd877,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
+      value: QuitToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 114545998297483588, guid: 54103854327611943b70e29a559bd877,
         type: 2}
