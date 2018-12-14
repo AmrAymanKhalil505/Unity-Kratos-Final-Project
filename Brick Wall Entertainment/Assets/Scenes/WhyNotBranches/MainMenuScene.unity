@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -575,7 +575,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -416, y: -2216}
+  m_AnchoredPosition: {x: -416, y: -4126}
   m_SizeDelta: {x: -966.76, y: -516.1308}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &367816391
@@ -608,7 +608,40 @@ MonoBehaviour:
     Animations :\r\nMixamo.com\r\n\r\nEnemies Models and Animations :\r\nMixamo.com\r\n\r\nBoss
     Model and Animations :\r\nMixamo.com\r\n\nFlowing Lava Textures:\r\nhttps://assetstore.unity.com/packages/vfx/shaders/lava-flowing-shader-33635\r\n\r\nCracked
     Stone Texture:\r\nhttps://assetstore.unity.com/packages/2d/textures-materials/floors/cracked-stone-filled-with-lava-8294\r\n\r\nPillars
-    Prefabs:\r\nhttps://assetstore.unity.com/packages/3d/environments/yughues-free-pillars-columns-13103\n\r\nhttps://assetstore.unity.com/packages/3d/environments/landscapes/realistic-terrain-collection-lite-47726\r\nhttps://assetstore.unity.com/packages/3d/vegetation/trees/realistic-tree-10-54724\r\nhttps://www.turbosquid.com/FullPreview/Index.cfm/ID/733492\r\nhttps://assetstore.unity.com/packages/3d/environments/yughues-free-rocks-13568\r\nhttps://free3d.com/3d-model/driveway-gate-old-80884.html\r\nhttps://assetstore.unity.com/packages/3d/vegetation/plants/yughues-free-bushes-13168\r\nhttps://www.turbosquid.com/3d-models/free-obj-model-mapped/723445\r\nhttps://assetstore.unity.com/packages/essentials/post-processing-stack-83912\r\nhttps://www.youtube.com/watch?v=sPpGUEwejGo\r\nhttps://www.pexels.com/photo/close-up-concrete-creativity-dark-908286/\r\nhttps://free3d.com/3d-model/well-73755.html\r\nhttps://free3d.com/3d-model/village-house-905585.html\r\nhttps://www.poliigon.com/search?category=Nature\r\nhttps://free3d.com/3d-model/low-poly-cart-79545.html\r\nhttps://free3d.com/3d-model/medieval-barrel-1609.html\r\nhttps://free3d.com/3d-model/tree-67970.html\r\nhttps://free3d.com/dl-files.php?p=5a3a4e7c26be8bd2158b4567&f=0\r\nhttps://free3d.com/3d-model/statue-93070.html\r\n"
+    Prefabs:\r\nhttps://assetstore.unity.com/packages/3d/environments/yughues-free-pillars-columns-13103\n\r\n1.
+    Animations\r\n  1.1 Axe attack (Me)\r\n  1.2 Dying (Me)\r\n  1.3 Horns Attack
+    (Me)\r\n  1.4 Idle (Mixamo)\r\n  1.5 Injured Run (Mixamo)\r\n  1.6 Magic Attack
+    (Me)\r\n  1.7 Kick (Mixamo)\r\n  1.8 Roar (Mixamo)\r\n  1.9 run (Mixamo)\r\n  1.10
+    Stomp (Mixamo)\r\n  1.11 Stunned (Mixamo)\r\n  1.12 Swipe Attack (Mixamo)\r\n\r\n2.
+    Models\r\n  1.1 Attack Wave (Me)\r\n  1.2 Axe (m3ad0w)(https://free3d.com/3d-model/black-legion-axe-641.html)\r\n
+    \ 1.3 Blood Splatter (Me)\r\n  1.4 Boss (Mixamo)\r\n  1.5 Ring (Me)\r\n  1.6 Rock
+    (rudy102)(https://free3d.com/3d-model/low-poly-rock-for-games-9753.html)\r\n  1.7
+    Trees (https://assetstore.unity.com/packages/3d/vegetation/trees/realistic-tree-10-54724)\r\n
+    \ 1.8 Rocks (https://assetstore.unity.com/packages/3d/environments/yughues-free-rocks-13568)\r\n
+    \ 1.9 Gate (https://free3d.com/3d-model/driveway-gate-old-80884.html)\r\n  2.1
+    Bushes (https://assetstore.unity.com/packages/3d/vegetation/plants/yughues-free-bushes-13168)\r\n
+    \ 2.2 Boulder (https://www.turbosquid.com/3d-models/free-obj-model-mapped/723445)\r\n
+    \ 2.3 Well (https://free3d.com/3d-model/well-73755.html)\r\n  2.4 Village house
+    (https://free3d.com/3d-model/village-house-905585.html)\r\n  2.5 Wheel cart (https://free3d.com/3d-model/low-poly-cart-79545.html)\r\n
+    \ 2.6 Barrel (https://free3d.com/3d-model/medieval-barrel-1609.html)\r\n  2.7
+    Nice looking Tree (https://free3d.com/3d-model/tree-67970.html)\r\n  2.8 Even
+    better looknig tree (https://free3d.com/dl-files.php?p=5a3a4e7c26be8bd2158b4567&f=0)\r\n
+    \ 2.9 Statue (https://free3d.com/3d-model/statue-93070.html)\r\n  \r\n  \r\n \r\n3.
+    Textures\r\n  1.1 Lava (ID 122493413, Mansum008 , Dreamstime.com)(https://www.dreamstime.com/art-hot-lava-fire-abstract-pattern-illustration-background-image122493413)\r\n
+    \ 1.2 Boss textures (Mixamo)\r\n  1.3 Rock Texture (rudy102)(https://free3d.com/3d-model/low-poly-rock-for-games-9753.html)\r\n
+    \ 1.4 Terrain Textures (https://assetstore.unity.com/packages/3d/environments/landscapes/realistic-terrain-collection-lite-47726)\r\n
+    \ 1.5 Building Texture (https://www.pexels.com/photo/close-up-concrete-creativity-dark-908286/)\r\n
+    \ 1.6 more Terrain Texture (https://www.poliigon.com/search?category=Nature)\r\n
+    \ \r\n4. Sounds\r\n  1.1 Axe Attack (ZapSplat)(https://www.zapsplat.com/music/heavy-medieval-axe-or-other-weapon-swing-in-air-whoosh-1/)\r\n
+    \ 1.2 Dying (Articulated)(https://www.zapsplat.com/music/creature-or-beast-yeti-monster-bigfoot-dying-strain-grunt/)\r\n
+    \ 1.3 Horns Attack (ZapSplat)(https://www.zapsplat.com/music/explosion-loud-internal-reverberant-explosion/)\r\n
+    \ 1.4 Magic Attack (Aleks41)(https://freesound.org/people/Aleks41/sounds/406063/)\r\n
+    \ 1.5 Roar (thecheeseman)(http://soundbible.com/1458-Monster-Roar.html)\r\n  1.6
+    Rock Attack (ZapSplat)(https://www.zapsplat.com/music/rock-or-stone-tomb-door-close-thud/)\r\n
+    \ 1.7 Stunned (ZapSplat)(https://www.zapsplat.com/music/evil-demonic-growl-1/)\r\n
+    \ 1.8 Trap Sound Effect (https://www.youtube.com/watch?v=sPpGUEwejGo)\r\n\r\n5.
+    Post Processing\r\n  1.1 Post Processing (https://assetstore.unity.com/packages/essentials/post-processing-stack-83912)\r\n\r\n6.UI\r\n
+    \ 1.1 TextMeshPro\r\n  1.2 God Of War font (https://www.dafont.com/godofwar.font)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 202ffeba6c942c843ac4dd5910ab674c, type: 2}
   m_sharedMaterial: {fileID: 21902928729650174, guid: 202ffeba6c942c843ac4dd5910ab674c,
@@ -677,12 +710,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -594.2887, w: 104.11822}
   m_textInfo:
     textComponent: {fileID: 367816391}
-    characterCount: 2138
+    characterCount: 4088
     spriteCount: 0
-    spaceCount: 136
-    wordCount: 253
+    spaceCount: 411
+    wordCount: 531
     linkCount: 0
-    lineCount: 93
+    lineCount: 169
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -1024,7 +1057,7 @@ MonoBehaviour:
       type: 2}
     loop: 1
     volume: 0.18
-    pitch: 0.8
+    pitch: 1
   - soundName: Boss_Stunned
     clip: {fileID: 8300000, guid: 24a655db9eea97e4cb9284d58dd64eb4, type: 3}
     mixerGroup: {fileID: 243229761141695126, guid: fdd36aefba267dd40b8bd60d0ff77468,
