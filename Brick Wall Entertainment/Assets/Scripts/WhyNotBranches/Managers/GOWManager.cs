@@ -193,8 +193,6 @@ namespace BrickWallEntertainment.Managers
                 foundEnemySpawn = true;
             }
 
-            print(kratosController);
-            print(bossController);
             while (kratosController.currentHealth > 0 && bossController.health > 0)
             {
                 yield return null;
@@ -215,12 +213,16 @@ namespace BrickWallEntertainment.Managers
         private void OnGameStateChange(GameState gameState)
         {
             this.currentGameState = gameState;
-            if (gameState == GameState.START_MENU || gameState == GameState.PAUSE_MENU)
+            if (gameState == GameState.START_MENU)
+            {
+                AudioManager.Instance.Play("MainMenuTheme");
+                Time.timeScale = 0;
+            }
+            else if (gameState == GameState.PAUSE_MENU
+                || gameState == GameState.GAME_OVER || gameState == GameState.GAME_WIN)
             {
                 AudioManager.Instance.PauseAll();
-                // PLAY THEME
-                AudioManager.Instance.Play("");
-                Time.timeScale = 0;
+                AudioManager.Instance.UnPause("MainMenuTheme");
             }
             else if (gameState == GameState.GAME_RESTART)
             {
@@ -233,6 +235,8 @@ namespace BrickWallEntertainment.Managers
             else if (gameState == GameState.LEVEL_1)
             {
                 Time.timeScale = 1;
+                AudioManager.Instance.UnPauseAll();
+                AudioManager.Instance.Pause("MainMenuTheme");
                 AudioManager.Instance.Play("BirdAmbient");
                 if (!waveStarted)
                 {
@@ -244,6 +248,8 @@ namespace BrickWallEntertainment.Managers
             {
                 StopAllCoroutines();
                 Time.timeScale = 1;
+                AudioManager.Instance.UnPauseAll();
+                AudioManager.Instance.Pause("MainMenuTheme");
                 // AudioManager.Instance.Play("");
                 if (!bossStarted)
                 {

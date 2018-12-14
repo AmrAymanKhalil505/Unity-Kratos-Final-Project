@@ -29,7 +29,6 @@ namespace BrickWallEntertainment.Managers
             else if (uiManager != this)
                 Destroy(this.gameObject);
             DontDestroyOnLoad(this.gameObject);
-            AudioManager.Instance.Play("BirdAmbient");
         }
 
 
