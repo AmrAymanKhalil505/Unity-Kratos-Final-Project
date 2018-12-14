@@ -10,7 +10,6 @@ TagManager:
   - HealthChest
   - Kratos
   - EnemySpawn
-  - Undefined
   - FrontBackPlatforms
   - RightLeftPlatforms
   - HeavyEnemy
@@ -31,6 +30,7 @@ TagManager:
   - lava
   - PitSpikes
   - Spikes
+  - Gate
   layers:
   - Default
   - TransparentFX

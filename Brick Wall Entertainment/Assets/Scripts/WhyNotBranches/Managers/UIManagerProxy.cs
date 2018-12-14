@@ -6,11 +6,19 @@ using BrickWallEntertainment.Managers;
 public class UIManagerProxy : MonoBehaviour
 {
 
+    public GameObject deathMenuCanvas;
+
     public GameObject pauseMenuCanvas;
 
     void Update()
     {
-        if (GOWManager.Instance.currentGameState != GameState.START_MENU && Input.GetKeyDown(KeyCode.Escape))
+        if (GOWManager.Instance.currentGameState == GameState.GAME_OVER)
+        {
+            deathMenuCanvas.SetActive(true);
+            return;
+        }
+        if (GOWManager.Instance.currentGameState != GameState.START_MENU
+            && GOWManager.Instance.currentGameState != GameState.GAME_OVER && Input.GetKeyDown(KeyCode.Escape))
         {
             if (GOWManager.Instance.currentGameState != GameState.PAUSE_MENU)
             {
@@ -26,16 +34,16 @@ public class UIManagerProxy : MonoBehaviour
         }
     }
 
-
     public void RestartGame()
     {
+        EventManager.emitGameState(GameState.GAME_RESTART);
         UIManager.Instance.StartGame();
     }
 
 
     public void ResumeGame()
     {
-		UIManager.Instance.ResumeGame();
+        UIManager.Instance.ResumeGame();
     }
 
     public void QuitGame()

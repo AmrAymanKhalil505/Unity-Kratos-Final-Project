@@ -23,7 +23,7 @@ namespace BrickWallEntertainment
         }
 
         // Call To Open the Gate.
-        void OpenGate()
+        public void OpenGate()
         {
             animator.SetTrigger("OpenGate");
             gateCollider.enabled = false;

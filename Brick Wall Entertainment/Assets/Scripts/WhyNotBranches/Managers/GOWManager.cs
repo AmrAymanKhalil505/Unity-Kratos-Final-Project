@@ -9,6 +9,8 @@ namespace BrickWallEntertainment.Managers
         PAUSE_MENU,
         START_MENU,
         LEVEL_1,
+        GAME_OVER,
+        GAME_RESTART,
     }
 
     public class GOWManager : MonoBehaviour
@@ -54,6 +56,8 @@ namespace BrickWallEntertainment.Managers
 
         private bool foundEnemySpawn;
 
+        private PlayerController kratosController;
+
         void Awake()
         {
             if (gowManager == null)
@@ -91,8 +95,6 @@ namespace BrickWallEntertainment.Managers
             foundEnemySpawn = false;
         }
 
-        void Update() { }
-
         private IEnumerator GameLoop()
         {
             yield return new WaitForSeconds(delayBeforeSpawn);
@@ -100,6 +102,8 @@ namespace BrickWallEntertainment.Managers
             if (!foundEnemySpawn)
             {
                 FindEnemySpawnPoints();
+                GameObject kratosGameObject = GameObject.FindGameObjectWithTag("Kratos");
+                kratosController = kratosGameObject.GetComponent<PlayerController>();
                 foundEnemySpawn = true;
             }
 
@@ -107,22 +111,19 @@ namespace BrickWallEntertainment.Managers
 
             yield return KilledEnemiesAndAlive();
 
-            // if (kratosDead)
-            // {
-            // DISPLAY YOU DIED UI.
-            // spawnGroup = 0;
-            // currentWave = 0;
-            // waveStarted = false;
-            // return;
-            // } else
-
-            if (currentWave < numberOfWaves)
+            if (kratosController.currentHealth <= 0)
+            {
+                EventManager.emitGameState(GameState.GAME_OVER);
+            }
+            else if (currentWave < numberOfWaves)
             {
                 StartCoroutine(GameLoop());
             }
             else
             {
-                // OPEN GATE
+                GameObject gate = GameObject.FindGameObjectWithTag("Gate");
+                Gate gateScript = gate.GetComponent<Gate>();
+                gateScript.OpenGate();
 
                 // YIELD BOSS LEVEL
             }
@@ -143,13 +144,12 @@ namespace BrickWallEntertainment.Managers
 
         private IEnumerator KilledEnemiesAndAlive()
         {
-            while (!EnemiesDead()) // && KratosAlive
+            while (!EnemiesDead() && kratosController.currentHealth > 0)
             {
                 yield return null;
             }
         }
 
-        // CHANGE THIS WITH `EnemyBehavior` SCRIPT.
         private bool EnemiesDead()
         {
             foreach (GameObject enemy in wave)
@@ -166,11 +166,9 @@ namespace BrickWallEntertainment.Managers
         private void FindEnemySpawnPoints()
         {
             GameObject[] gameObjectSpawnGroups = GameObject.FindGameObjectsWithTag("EnemySpawn");
-            print(gameObjectSpawnGroups.Length);
             this.SpawnGroups = new Transform[gameObjectSpawnGroups.Length];
             for (int i = 0; i < gameObjectSpawnGroups.Length; i++)
             {
-                print(gameObjectSpawnGroups[i].transform);
                 SpawnGroups[i] = gameObjectSpawnGroups[i].transform;
             }
         }
@@ -183,9 +181,19 @@ namespace BrickWallEntertainment.Managers
                 AudioManager.Instance.PauseAll();
                 // PLAY THEME
                 AudioManager.Instance.Play("");
+                Time.timeScale = 0;
+            }
+            else if (gameState == GameState.GAME_RESTART)
+            {
+                StopAllCoroutines();
+                spawnGroup = 0;
+                currentWave = 0;
+                waveStarted = false;
+                foundEnemySpawn = false;
             }
             else if (gameState == GameState.LEVEL_1)
             {
+                Time.timeScale = 1;
                 AudioManager.Instance.Play("BirdAmbient");
                 if (!waveStarted)
                 {
