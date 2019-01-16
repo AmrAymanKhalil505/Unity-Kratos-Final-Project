@@ -3,7 +3,35 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LightEnemy
+  - KratosAxe
+  - FallingRock
+  - HealthChest
+  - Kratos
+  - EnemySpawn
+  - FrontBackPlatforms
+  - RightLeftPlatforms
+  - HeavyEnemy
+  - RangedEnemy
+  - LightEnemyWeapon
+  - HeavyEnemyWeapon
+  - RangedEnemyWeapon
+  - Boss
+  - Ground
+  - Ring
+  - Rock
+  - MagicBall
+  - AttackWave
+  - BossAxe
+  - BossLeftHand
+  - BossLeg
+  - MagicAttackBall
+  - lava
+  - PitSpikes
+  - Spikes
+  - Gate
+  - KratosAttributes
   layers:
   - Default
   - TransparentFX
